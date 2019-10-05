@@ -21,7 +21,7 @@ class App extends React.Component {
 		console.log(this.getUrlVars());
 		this.state = {
 			activeView: 'default',
-			activeStory: 'transport',
+			activeStory: 'transport1',  //kogda sdelaesh transport - izmeni
 			popout: <ScreenSpinner size='large' />,
 			snackbar: null,
 			urlVars: this.getUrlVars(),
@@ -133,7 +133,7 @@ class App extends React.Component {
 								onClick={ this.onStoryChange }
 								selected={ this.state.activeStory === 'transport' }
 								data-story='transport'
-								text='Тренировки'
+								text='Transport'
 							>
 								<Icon28Newsfeed />
 							</TabbarItem>
