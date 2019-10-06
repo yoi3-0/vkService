@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Panel, PanelHeader, Button } from '@vkontakte/vkui';
 
+import '../App.css';
+
 const Transport = props => (
 	<View id={ props.id } activePanel='default'>
-		<Panel id='default' className='panel_blue'>
+		<Panel id='default'>
 			<PanelHeader noShadow={ true }>
-				Тренировки
+				Маршруты
 			</PanelHeader>
 			<Button
 				size='xl'

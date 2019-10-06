@@ -21,7 +21,7 @@ class App extends React.Component {
 		console.log(this.getUrlVars());
 		this.state = {
 			activeView: 'default',
-			activeStory: 'transport1',  //kogda sdelaesh transport - izmeni
+			activeStory: 'transport',  //kogda sdelaesh transport - izmeni
 			popout: <ScreenSpinner size='large' />,
 			snackbar: null,
 			urlVars: this.getUrlVars(),
@@ -29,7 +29,7 @@ class App extends React.Component {
 			user: null,
 			schedule: [],
 			translations: {
-				achievements: 'Достижения 1',
+				map: 'Карта',
 				need_accept_notifications: 'Надо разрешить уведомления',
 				accept_notifications: 'Розрешить',
 
@@ -133,7 +133,7 @@ class App extends React.Component {
 								onClick={ this.onStoryChange }
 								selected={ this.state.activeStory === 'transport' }
 								data-story='transport'
-								text='Transport'
+								text='Маршруты'
 							>
 								<Icon28Newsfeed />
 							</TabbarItem>
@@ -142,7 +142,7 @@ class App extends React.Component {
 								onClick={ this.onStoryChange }
 								selected={ this.state.activeStory === 'map' }
 								data-story='map'
-								text= {this.state.translations.achievements}
+								text= {this.state.translations.map}
 							>
 								<Icon28FavoriteOutline />
 							</TabbarItem>
@@ -158,9 +158,8 @@ class App extends React.Component {
 						</Tabbar>
 					}>
 					<Transport id='transport' go={ this.go } />
-					<Map id='map' />
-
-					<Settings id='settings' user={ this.state.user } schedule={ this.state.schedule } go={ this.go } urlObj={ this.state.urlObj } blurred={ !Boolean(parseInt(this.state.urlVars['vk_are_notifications_enabled'])) } onRemove={ this.onRemove } />
+					<Map id='map' go={ this.go } />
+					<Settings id='settings' user={ this.state.user } schedule={ this.state.schedule } go={ this.go } />
 				</Epic>
 
 			</Root>
