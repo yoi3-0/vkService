@@ -110,16 +110,6 @@ class App extends React.Component {
 		this.setState({ activeView: e.currentTarget.dataset.to })
 	};
 
-	onRemove = (index) => {
-		fetch(`https://demo135.bravo.vkhackathon.com/api/schedule?${this.state.urlObj}&times=` + [...this.state.schedule.slice(0, index), ...this.state.schedule.slice(index + 1)].join(','), {method: 'POST'})
-			.then(res => res.json())
-			.then((data) => {
-				console.log(data);
-				this.setState({
-					schedule: [...this.state.schedule.slice(0, index), ...this.state.schedule.slice(index + 1)]
-				});
-			});
-	}
 
 	render() {
 		return (

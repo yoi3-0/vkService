@@ -1,5 +1,5 @@
 import React from 'react';
-import {platform, IOS, View} from '@vkontakte/vkui';
+import {platform, IOS, View, Avatar} from '@vkontakte/vkui';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import HeaderButton from '@vkontakte/vkui/dist/components/HeaderButton/HeaderButton';
@@ -16,6 +16,14 @@ const Settings = props => (
             <PanelHeader >
                 Настройки
             </PanelHeader>
+            <div className='settings_user'>
+                <Avatar
+                    size={ 80 }
+
+                    className='settings_user_avatar'
+                />
+                <p className='settings_user_name'>Ivan Ivanovich</p>
+            </div>
         </Panel>
     </View>
 );
