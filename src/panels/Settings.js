@@ -19,7 +19,6 @@ const Settings = props => (
             <div className='settings_user'>
                 <Avatar
                     size={ 80 }
-
                     className='settings_user_avatar'
                 />
                 <p className='settings_user_name'>Ivan Ivanovich</p>

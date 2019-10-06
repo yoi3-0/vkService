@@ -21,7 +21,7 @@ class App extends React.Component {
 		console.log(this.getUrlVars());
 		this.state = {
 			activeView: 'default',
-			activeStory: 'transport',  //kogda sdelaesh transport - izmeni
+			activeStory: 'transport',  //kogda sdelaesh transport - izmeni // SDELAL!
 			popout: <ScreenSpinner size='large' />,
 			snackbar: null,
 			urlVars: this.getUrlVars(),
