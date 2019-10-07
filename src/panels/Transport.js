@@ -3,6 +3,7 @@ import { View, Panel, PanelHeader, ModalRoot,ModalPage, ModalPageHeader, Group, 
 	HeaderButton, IOS, ANDROID, platform, InfoRow, Button, Cell, Search, List} from '@vkontakte/vkui';
 
 import '../App.css';
+import t10031 from '../img/t10031.png';
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import Icon24Done from '@vkontakte/icons/dist/24/done';
 
@@ -47,6 +48,7 @@ const routes = [
 const osName=platform();
 const IS_PLATFORM_ANDROID = (osName === ANDROID);
 const IS_PLATFORM_IOS = (osName === IOS);
+
 
 
 
@@ -98,6 +100,7 @@ class Transport extends React.Component {
 				<ModalPage
 					className='modal-page'
 					id={'t1003'}
+					settlingHeight='30' //ono rabotaet ili net? cha za fignya?
 					onClose={this.modalBack}
 					header={
 						<ModalPageHeader
@@ -108,42 +111,44 @@ class Transport extends React.Component {
 						</ModalPageHeader>
 					}
 				>
+
+                    <img src={t10031} className='routePhoto'/>
 					<div className='route-info'>
-					<Group title='Маршрут'>
-						<List >
-							<Cell>
-								<InfoRow title='Конечные остановки'>
-									Площадь Репина - площадь Ленина
-								</InfoRow>
-							</Cell>
-							<Cell>
-								<InfoRow title='Станции метро по пути следования'>
-									Сенная площадь<br/>
-									Гостиный двор<br/>
-									Площадь Ленина
-								</InfoRow>
-							</Cell>
-						</List>
-					</Group>
-					<Group title='Другая информация'>
-						<list>
-							<Cell>
-								<InfoRow title='Стоиимость проезда'>
-									40 рублей
-								</InfoRow>
-							</Cell>
-							<Cell>
-								<InfoRow title='Обслуживающие парки'>
-									Трамвайный парк #3, Трамвайный парк #7
-								</InfoRow>
-							</Cell>
-							<Cell>
-								<InfoRow title='Подвижной состав'>
-									ЛМ-68М2, ЛМ-68М3, ЛМ-99АВН, 71-301, 71-623, 71-623-02, 71-631, 71-631-02
-								</InfoRow>
-							</Cell>
-						</list>
-					</Group>
+						<Group title='Маршрут'>
+							<List >
+								<Cell>
+									<InfoRow title='Конечные остановки'>
+										Площадь Репина - площадь Ленина
+									</InfoRow>
+								</Cell>
+								<Cell>
+									<InfoRow title='Станции метро по пути следования'>
+										Сенная площадь<br/>
+										Гостиный двор<br/>
+										Площадь Ленина
+									</InfoRow>
+								</Cell>
+							</List>
+						</Group>
+						<Group title='Другая информация'>
+							<list>
+								<Cell>
+									<InfoRow title='Стоиимость проезда'>
+										40 рублей
+									</InfoRow>
+								</Cell>
+								<Cell>
+									<InfoRow title='Обслуживающие парки'>
+										Трамвайный парк #3, Трамвайный парк #7
+									</InfoRow>
+								</Cell>
+								<Cell>
+									<InfoRow title='Подвижной состав'>
+										ЛМ-68М2, ЛМ-68М3, ЛМ-99АВН, 71-301, 71-623, 71-623-02, 71-631, 71-631-02
+									</InfoRow>
+								</Cell>
+							</list>
+						</Group>
 					</div>
 				</ModalPage>
 			</ModalRoot>
