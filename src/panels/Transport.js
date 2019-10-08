@@ -8,7 +8,7 @@ import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import Icon24Done from '@vkontakte/icons/dist/24/done';
 
 const routes = [
-	{id: 1000, name: "Трамвай А"},
+	{id: 999, name: "Трамвай А"},
 	{id: 1003, name: "Трамвай 3"},
 	{id: 1006, name: "Трамвай 6"},
 	{id: 1007, name: "Трамвай 7"},
@@ -81,10 +81,11 @@ class Transport extends React.Component {
             activeRoute=activeModal[activeModal.length-1];
 			modalHistory = modalHistory.splice(0, modalHistory.indexOf(activeModal) + 1);
 		} else {
-            activeRoute=activeModal[activeModal.length-1];
+            activeRoute=activeModal-1000;
 			modalHistory.push(activeModal);
+			activeModal='tram'
 		}
-
+		if (activeRoute==-1) activeRoute='A';
 		this.setState({
             activeRoute,
 			activeModal,
@@ -104,7 +105,7 @@ class Transport extends React.Component {
 			<ModalRoot activeModal={this.state.activeModal} >
 				<ModalPage
 					className='modal-page'
-					id={'t1003'}
+					id={'tram'}
 					settlingHeight='30' //ono rabotaet ili net? cha za fignya?
 					onClose={this.modalBack}
 					header={
@@ -175,7 +176,7 @@ class Transport extends React.Component {
 						<Search value={this.state.search} onChange={this.onChange}/>
 						{this.thematics.length > 0 &&
 						<List>
-							{this.thematics.map(thematic => <Cell key={thematic.id} onClick={() => this.setActiveModal('t'+thematic.id)} >{thematic.name}</Cell>)}
+							{this.thematics.map(thematic => <Cell key={thematic.id} onClick={() => this.setActiveModal(thematic.id)} >{thematic.name}</Cell>)}
 						</List>
 						}
 					</div>
