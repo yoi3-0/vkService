@@ -60,7 +60,8 @@ class Transport extends React.Component {
 			activePanel:'default',
 			activeModal: null,
 			modalHistory: [],
-			search: ''
+			search: '',
+            activeRoute:''
 		};
 		this.modalBack = () => {
 			this.setActiveModal(this.state.modalHistory[this.state.modalHistory.length - 2]);
@@ -71,17 +72,21 @@ class Transport extends React.Component {
 
 	setActiveModal(activeModal) {
 		activeModal = activeModal || null;
+		let activeRoute='';
 		let modalHistory = this.state.modalHistory ? [...this.state.modalHistory] : [];
 
 		if (activeModal === null) {
 			modalHistory = [];
 		} else if (modalHistory.indexOf(activeModal) !== -1) {
+            activeRoute=activeModal[activeModal.length-1];
 			modalHistory = modalHistory.splice(0, modalHistory.indexOf(activeModal) + 1);
 		} else {
+            activeRoute=activeModal[activeModal.length-1];
 			modalHistory.push(activeModal);
 		}
 
 		this.setState({
+            activeRoute,
 			activeModal,
 			modalHistory
 		});
@@ -107,12 +112,12 @@ class Transport extends React.Component {
 							left={IS_PLATFORM_ANDROID && <HeaderButton onClick={this.modalBack}><Icon24Cancel /></HeaderButton>}
 							right={<HeaderButton onClick={this.modalBack}>{IS_PLATFORM_IOS ? 'Готово' : <Icon24Done />}</HeaderButton>}
 						>
-							Трамвай 3
+							Трамвай {this.state.activeRoute}
 						</ModalPageHeader>
 					}
 				>
 
-                    <img src={t10031} className='routePhoto'/>
+
 					<div className='route-info'>
 						<Group title='Маршрут'>
 							<List >
