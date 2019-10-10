@@ -11,7 +11,6 @@ import {
 	Cell,
 	Button,
 	InfoRow,
-	Snackbar,
 	platform,
 	IOS
 } from '@vkontakte/vkui';
@@ -32,14 +31,9 @@ class Parks extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			popout: null,
-			snackbar: null
+			popout: null
 		};
 		this.openInfo = this.openInfo.bind(this);
-		this.notNow = this.notNow.bind(this);
-	}
-	componentDidMount() {
-		this.notNow()
 	}
 	openInfo () {
 		this.setState({ popout:
@@ -52,18 +46,6 @@ class Parks extends React.Component {
 					</ActionSheetItem>
 					{osname === IOS && <ActionSheetItem autoclose theme="cancel">Отменить</ActionSheetItem>}
 				</ActionSheet>
-		});
-	}
-	notNow () {
-		if (this.state.snackbar) return;
-		this.setState({ snackbar:
-				<Snackbar
-					layout="vertical"
-					onClose={() => this.setState({ snackbar: null })}
-					before={<Avatar size={24} style={blueBackground}><Icon16Pin fill="#fff" width={14} height={14} /></Avatar>}
-				>
-					В данный момент парк не обслуживает данный маршрут
-				</Snackbar>
 		});
 	}
 
@@ -112,7 +94,7 @@ class Parks extends React.Component {
 							asideContent={<Icon24MoreVertical onClick={this.openInfo}/>}
 							bottomContent={
 								<div style={{display: 'flex'}}>
-									<Button size="m" onClick={this.notNow}>Добавить</Button>
+									<Button size="m" >Добавить</Button>
 									<Button size="m" level="secondary" style={{marginLeft: 8}}>Скрыть</Button>
 								</div>
 							}
@@ -135,7 +117,6 @@ class Parks extends React.Component {
 							</InfoRow>
 						</Cell>
 					</Group>
-					{this.state.snackbar}
 				</Panel>
 			</View>
 		)
