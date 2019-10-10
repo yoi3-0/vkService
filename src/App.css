@@ -21,3 +21,10 @@ border: white !important;;
 .zaglushka{
     text-align: center;
 }
+.park_pic{
+    max-width: 300px;
+    max-height: 300px;
+    padding: 5px 5px 5px 0px;
+}
+.park_info{
+}

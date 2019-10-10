@@ -10,7 +10,7 @@ import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
 import Icon28FavoriteOutline from '@vkontakte/icons/dist/28/favorite_outline';
 
 import Transport from './panels/Transport';
-import Map from './panels/Map';
+import Parks from './panels/Parks';
 import Settings from './panels/Settings';
 
 
@@ -130,8 +130,8 @@ class App extends React.Component {
 
 							<TabbarItem
 								onClick={ this.onStoryChange }
-								selected={ this.state.activeStory === 'map' }
-								data-story='map'
+								selected={ this.state.activeStory === 'parks' }
+								data-story='parks'
 								text= {this.state.translations.map}
 							>
 								<Icon28FavoriteOutline />
@@ -148,7 +148,7 @@ class App extends React.Component {
 						</Tabbar>
 					}>
 					<Transport id='transport' go={ this.go } />
-					<Map id='map' go={ this.go } />
+					<Parks id='parks' go={ this.go } />
 					<Settings id='settings' user={ this.state.user } schedule={ this.state.schedule } go={ this.go } />
 				</Epic>
 
