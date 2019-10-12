@@ -12,7 +12,6 @@ import Icon28FavoriteOutline from '@vkontakte/icons/dist/28/favorite_outline';
 import Transport from './panels/Transport';
 import Parks from './panels/Parks';
 import Settings from './panels/Settings';
-import Photo from "./panels/Photo";
 
 
 
@@ -22,7 +21,7 @@ class App extends React.Component {
 		console.log(this.getUrlVars());
 		this.state = {
 			activeView: 'default',
-			activeStory: 'transport',  //kogda sdelaesh transport - izmeni // SDELAL!
+			activeStory: 'transport',
 			popout: <ScreenSpinner size='large' />,
 			snackbar: null,
 			urlVars: this.getUrlVars(),
@@ -152,7 +151,6 @@ class App extends React.Component {
 					<Parks id='parks' go={ this.go } />
 					<Settings id='settings' user={ this.state.user } schedule={ this.state.schedule } go={ this.go } />
 				</Epic>
-				<Photo id='photo' go={ this.go } />
 			</Root>
 		);
 	}
