@@ -20,6 +20,7 @@ import Icon16Pin from '@vkontakte/icons/dist/16/pin';
 
 import '../App.css';
 import t10031 from '../img/t10031.png';
+import Transport from "./Transport";
 
 const osname=platform();
 const blueBackground = {
@@ -38,11 +39,8 @@ class Parks extends React.Component {
 	openInfo () {
 		this.setState({ popout:
 				<ActionSheet onClose={() => this.setState({ popout: null })}>
-					<ActionSheetItem autoclose>
-						Редактировать
-					</ActionSheetItem>
-					<ActionSheetItem autoclose theme="destructive">
-						Выйти
+					<ActionSheetItem onClick={this.props.go} data-to="photo">
+						Открыть фотографию
 					</ActionSheetItem>
 					{osname === IOS && <ActionSheetItem autoclose theme="cancel">Отменить</ActionSheetItem>}
 				</ActionSheet>
@@ -59,7 +57,7 @@ class Parks extends React.Component {
 					</PanelHeader>
 					<Group className='park_info'>
 						<Cell
-							before={<img src={t10031} className='park_pic' alt='Трамвайный парк №1'/>}
+
 							size="l"
 							asideContent={<Icon24MoreVertical onClick={this.openInfo}/>}
 							bottomContent={
@@ -89,7 +87,7 @@ class Parks extends React.Component {
 					</Group>
 					<Group className='park_info'>
 						<Cell
-							before={<img src={t10031} className='park_pic' alt='Трамвайный парк №3'/>}
+
 							size="l"
 							asideContent={<Icon24MoreVertical onClick={this.openInfo}/>}
 							bottomContent={
