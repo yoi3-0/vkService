@@ -141,7 +141,7 @@ class App extends React.Component {
 								onClick={ this.onStoryChange }
 								selected={ this.state.activeStory === 'settings' }
 								data-story='settings'
-								text='Настройки'
+								text='Информация'
 							>
 								<Icon28SettingsOutline />
 							</TabbarItem>

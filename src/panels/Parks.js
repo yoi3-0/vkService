@@ -39,7 +39,12 @@ const parkinfo = [
             ' с 1909 года — «Петербургский трамвайный парк». В 1922 году название «Петербургский» упразднено, вместо него парку присвоен номер «3» и имя К. Н. Блохина.' +
             'В 2003 году трамвайные парки №2 и №3 были объединены под номером «3», с этого момента трамвайный парк № 3 стал первой площадкой выпуска вагонов, а территория парка №2 — второй площадкой. ' +
             '15 января 2007 года площадка №2 была закрыта, начиная с этого времени и до возобновления работы у трампарка № 3 вновь осталась только одна площадка. ' +
-            'Со 2 июня 2016 года вторая площадка возобновила работу.'}
+            'Со 2 июня 2016 года вторая площадка возобновила работу.'},
+	{id: '5', name: 'Трамвайный парк № 5 (Ланской; имени Калинина)', info: ''},
+	{id: '7', name: 'Трамвайный парк № 7 (имени Володарского)', info: ''},
+	{id: '8', name: 'Трамвайный парк № 8 (бывший №9 им. Котлякова)', info: ''},
+	{id: '10', name: 'Совмещённый трамвайно-троллейбусный парк', info: ''},
+	{id: '11', name: 'Трамвайный парк ООО«ТКК»', info: ''},
 ];
 
 class Parks extends React.Component {
@@ -53,6 +58,11 @@ class Parks extends React.Component {
 		this.openInfo = this.openInfo.bind(this);
 		this.TramPark1 = this.TramPark1.bind(this);
 		this.TramPark3 = this.TramPark3.bind(this);
+		this.TramPark5 = this.TramPark5.bind(this);
+		this.TramPark7 = this.TramPark7.bind(this);
+		this.TramPark8 = this.TramPark8.bind(this);
+		this.TramPark0 = this.TramPark0.bind(this);
+		this.TramPark11 = this.TramPark11.bind(this);
 	}
     get infobase () {
         return parkinfo.filter(({id})=> id===this.state.activePark);
@@ -76,6 +86,28 @@ class Parks extends React.Component {
 		this.setState({ activePark: '3'});
 		this.openInfo();
 	}
+	TramPark5 () {
+		this.setState({ activePark: '5'});
+		this.openInfo();
+	}
+	TramPark7 () {
+		this.setState({ activePark: '7'});
+		this.openInfo();
+	}
+	TramPark8 () {
+		this.setState({ activePark: '8'});
+		this.openInfo();
+	}
+	TramPark0 () {
+		this.setState({ activePark: '10'});
+		this.openInfo();
+	}
+
+	TramPark11 () {
+		this.setState({ activePark: '11'});
+		this.openInfo();
+	}
+
 
 
 	render() {
@@ -88,31 +120,24 @@ class Parks extends React.Component {
 					</PanelHeader>
 					<Group className='park_info'>
 						<Cell
-
 							size="l"
 							asideContent={<Icon24MoreVertical onClick={this.TramPark1}/>}
-							bottomContent={
-								<div style={{display: 'flex'}}>
-									<Button size="m">Добавить</Button>
-									<Button size="m" level="secondary" style={{marginLeft: 8}}>Скрыть</Button>
-								</div>
-							}
 						>
 							Трамвайный парк №1 <hr/>
 							<InfoRow title='Расположение'>
-								Московский проспект 1234567
+								Московский проспект, 83
 							</InfoRow>
 							<InfoRow title='Телефон'>
-								88005553535
+								8 (812) 244-18-20
 							</InfoRow>
 							<InfoRow title='Обслуживает маршруты'>
 								49, 43, 45, 25, 62, 29, 25, <u> 16 </u>
 							</InfoRow>
 							<InfoRow title='Подвижной состав'>
-								ЛВС-86
+								ЛВС-86, ЛВС-97, ЛМ-99АВН, ЛВС-2005, ЛМ-2008
 							</InfoRow>
 							<InfoRow title='Дата открытия'>
-								5 февраля 1800
+								Октябрь 1907 года
 							</InfoRow>
 						</Cell
 >
@@ -122,28 +147,142 @@ class Parks extends React.Component {
 
 							size="l"
 							asideContent={<Icon24MoreVertical onClick={this.TramPark3}/>}
-							bottomContent={
-								<div style={{display: 'flex'}}>
-									<Button size="m" >Добавить</Button>
-									<Button size="m" level="secondary" style={{marginLeft: 8}}>Скрыть</Button>
-								</div>
-							}
 						>
 							Трамвайный парк №3 <hr/>
 							<InfoRow title='Расположение'>
-								Московский проспект 1234567
+								Большая Посадская улица, 24/2.
 							</InfoRow>
 							<InfoRow title='Телефон'>
-								88005553535
+								8 (812) 232-36-16
 							</InfoRow>
 							<InfoRow title='Обслуживает маршруты'>
-								49, 43, 45, 25, 62, 29, 25, <u> 16 </u>
+								3, 6, 10, 16, 20, 21, 23, 38, 40
 							</InfoRow>
 							<InfoRow title='Подвижной состав'>
-								ЛВС-86
+								ЛВС-86, ЛМ-99АВН, 71-88, ЛМ-68М3, ЛМ-68М2
 							</InfoRow>
 							<InfoRow title='Дата открытия'>
-								5 февраля 1800
+								1876 год
+							</InfoRow>
+						</Cell>
+					</Group>
+					<Group className='park_info'>
+						<Cell
+
+							size="l"
+							asideContent={<Icon24MoreVertical onClick={this.TramPark5}/>}
+						>
+							Трамвайный парк №5 <hr/>
+							<InfoRow title='Расположение'>
+								Сердобольская улица, 2г
+							</InfoRow>
+							<InfoRow title='Телефон'>
+								8 (812) 232-36-16
+							</InfoRow>
+							<InfoRow title='Обслуживает маршруты'>
+								9, 18, 19, 40, 47, 48 , 55, 61
+							</InfoRow>
+							<InfoRow title='Подвижной состав'>
+								ЛВС-86, ЛМ-68М2, ЛМ-99К, 71-631, 71-631-02, 84300М
+							</InfoRow>
+							<InfoRow title='Дата открытия'>
+								1917 год
+							</InfoRow>
+						</Cell>
+					</Group>
+					<Group className='park_info'>
+						<Cell
+
+							size="l"
+							asideContent={<Icon24MoreVertical onClick={this.TramPark7}/>}
+						>
+							Трамвайный парк №7 <hr/>
+							<InfoRow title='Расположение'>
+								улица Грибакиных, 3
+							</InfoRow>
+							<InfoRow title='Телефон'>
+								8 (812) 244-18-20
+							</InfoRow>
+							<InfoRow title='Обслуживает маршруты'>
+								3, 7, 10, 23, 24, 27, 39, 65
+							</InfoRow>
+							<InfoRow title='Подвижной состав'>
+								ЛВС-86, ЛМ-68М2, ЛМ-99К, ЛВС-97, 71-301, 71-631, 71-633
+							</InfoRow>
+							<InfoRow title='Дата открытия'>
+								1931 год
+							</InfoRow>
+						</Cell>
+					</Group>
+					<Group className='park_info'>
+						<Cell
+
+							size="l"
+							asideContent={<Icon24MoreVertical onClick={this.TramPark8}/>}
+						>
+							Трамвайный парк №8 <hr/>
+							<InfoRow title='Расположение'>
+								проспект Стачек, 114
+							</InfoRow>
+							<InfoRow title='Телефон'>
+								8 (812) 783-11-28
+							</InfoRow>
+							<InfoRow title='Обслуживает маршруты'>
+								16, 36, 41, 52, 56, 60
+							</InfoRow>
+							<InfoRow title='Подвижной состав'>
+								ЛВС-86, ЛМ-68М2, ЛМ-99К, ЛВС-97, Alstom Citadis 301, 71-931М
+							</InfoRow>
+							<InfoRow title='Дата открытия'>
+								1931 год
+							</InfoRow>
+						</Cell>
+					</Group>
+					<Group className='park_info'>
+						<Cell
+
+							size="l"
+							asideContent={<Icon24MoreVertical onClick={this.TramPark0}/>}
+						>
+							Совмещённый трамвайно-троллейбусный парк <hr/>
+							<InfoRow title='Расположение'>
+								Гражданский проспект, 131
+							</InfoRow>
+							<InfoRow title='Телефон'>
+								8 (812) 531-74-81
+							</InfoRow>
+							<InfoRow title='Обслуживает маршруты'>
+								20, 38, 51, 57, 58, 61, 100
+							</InfoRow>
+							<InfoRow title='Подвижной состав'>
+								ЛВС-86, ЛВС-97, ЛМ-99, 71-931, 71-923, 71-922
+							</InfoRow>
+							<InfoRow title='Дата открытия'>
+								1931 год
+							</InfoRow>
+						</Cell>
+					</Group>
+					<Group className='park_info'>
+						<Cell
+
+							size="l"
+							asideContent={<Icon24MoreVertical onClick={this.TramPark11}/>}
+						>
+							Трамвайный парк ООО«ТКК»<hr/>
+							<InfoRow title='Расположение'>
+								улица Потапова, 25
+							</InfoRow>
+							<InfoRow title='Телефон'>
+								8 (812) 667-88-68
+							</InfoRow>
+							<InfoRow title='Обслуживает маршруты'>
+								8, 59, 63, 64
+							</InfoRow>
+							<InfoRow title='Подвижной состав'>
+								Stadler B85600M
+							</InfoRow>
+							<InfoRow title='Дата открытия'>
+								Сентябрь 2019
 							</InfoRow>
 						</Cell>
 					</Group>
@@ -154,10 +293,11 @@ class Parks extends React.Component {
 							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 						</HeaderButton>}
 					>
-						История парка №{this.state.activePark}
+						{this.state.activePark<10? 'История парка №'+this.state.activePark: this.state.activePark==10? 'История СТТП': 'История трамвайного депо ООО"ТТК"' }
 					</PanelHeader>
                     {this.infobase.map(infobase =>
 					<p key={infobase.id} >
+						<h4 key={infobase.id}> {infobase.name}</h4>
                     {infobase.info}
                         </p>)}
 				</Panel>
