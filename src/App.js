@@ -5,7 +5,7 @@ import './App.css';
 
 import { Root, ScreenSpinner, Epic, Tabbar, TabbarItem, View, Snackbar, Avatar } from '@vkontakte/vkui';
 
-import Icon28SettingsOutline from '@vkontakte/icons/dist/28/settings_outline';
+import Icon28InfoOutline from '@vkontakte/icons/dist/28/info_outline';
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
 import Icon28FavoriteOutline from '@vkontakte/icons/dist/28/favorite_outline';
 
@@ -29,7 +29,9 @@ class App extends React.Component {
 			user: null,
 			schedule: [],
 			translations: {
-				map: 'Карта',
+				parks: 'Парки',
+				routes: 'Маршруты',
+				info: 'Информация',
 				need_accept_notifications: 'Надо разрешить уведомления',
 				accept_notifications: 'Розрешить',
 
@@ -123,7 +125,7 @@ class App extends React.Component {
 								onClick={ this.onStoryChange }
 								selected={ this.state.activeStory === 'transport' }
 								data-story='transport'
-								text='Маршруты'
+								text={this.state.translations.routes}
 							>
 								<Icon28Newsfeed />
 							</TabbarItem>
@@ -132,7 +134,7 @@ class App extends React.Component {
 								onClick={ this.onStoryChange }
 								selected={ this.state.activeStory === 'parks' }
 								data-story='parks'
-								text= {this.state.translations.map}
+								text= {this.state.translations.parks}
 							>
 								<Icon28FavoriteOutline />
 							</TabbarItem>
@@ -141,9 +143,9 @@ class App extends React.Component {
 								onClick={ this.onStoryChange }
 								selected={ this.state.activeStory === 'settings' }
 								data-story='settings'
-								text='Информация'
+								text={this.state.translations.info}
 							>
-								<Icon28SettingsOutline />
+								<Icon28InfoOutline />
 							</TabbarItem>
 						</Tabbar>
 					}>

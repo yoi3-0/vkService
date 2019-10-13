@@ -37,4 +37,8 @@ border: white !important;;
 }
 .sub_buttons{
     display: flex;
+    max-width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    align: center;
 }
