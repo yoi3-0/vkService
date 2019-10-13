@@ -30,6 +30,17 @@ const blueBackground = {
 	backgroundColor: 'var(--accent)'
 };
 
+const parkinfo = [
+    {id: '1', name: 'Трамвайный парк №1 (имени Коняшина)', info: 'Открыт в октябре 1907 года под названием «Московский трамвайный парк».\n' +
+            'В 1922 году название «Московский» упразднено, вместо него парку присвоен № 1 и имя И. И. Коняшина. ' +
+            ' В 1935 году из первого парка выделен в самостоятельную единицу грузовой трамвайный парк, получивший имя Е. И. Красуцкого, однако в 1971 году оба парка снова объединились.' +
+            ' В  1997 году в Петербурге прекращены грузовые трамвайные перевозки, и парк № 1 стал чисто пассажирским.'},
+    {id: '3', name: 'Трамвайный парк №1 (имени Коняшина)', info: 'Открыт в 1876 году как «Петербургский коночный парк»,' +
+            ' с 1909 года — «Петербургский трамвайный парк». В 1922 году название «Петербургский» упразднено, вместо него парку присвоен номер «3» и имя К. Н. Блохина.' +
+            'В 2003 году трамвайные парки №2 и №3 были объединены под номером «3», с этого момента трамвайный парк № 3 стал первой площадкой выпуска вагонов, а территория парка №2 — второй площадкой. ' +
+            '15 января 2007 года площадка №2 была закрыта, начиная с этого времени и до возобновления работы у трампарка № 3 вновь осталась только одна площадка. ' +
+            'Со 2 июня 2016 года вторая площадка возобновила работу.'}
+];
 
 class Parks extends React.Component {
 	constructor(props){
@@ -40,14 +51,18 @@ class Parks extends React.Component {
 			activePark: null
 		};
 		this.openInfo = this.openInfo.bind(this);
-		this.TramPark1 = this.TramPark3.bind(this);
+		this.TramPark1 = this.TramPark1.bind(this);
 		this.TramPark3 = this.TramPark3.bind(this);
 	}
+    get infobase () {
+        return parkinfo.filter(({id})=> id===this.state.activePark);
+    }
+
 	openInfo () {
 		this.setState({ popout:
 				<ActionSheet onClose={() => this.setState({ popout: null })}>
-					<ActionSheetItem  autoclose onClick={() =>this.setState({activePanel:'photo'})}>
-						Открыть фотографию
+					<ActionSheetItem  autoclose onClick={() =>this.setState({activePanel:'park-history'})}>
+						История предприятия
 					</ActionSheetItem>
 					{osName === IOS && <ActionSheetItem autoclose theme="cancel">Отменить</ActionSheetItem>}
 				</ActionSheet>
@@ -133,16 +148,18 @@ class Parks extends React.Component {
 						</Cell>
 					</Group>
 				</Panel>
-				<Panel id='photo'>
+				<Panel id='park-history'>
 					<PanelHeader
 						left={<HeaderButton onClick={ () => this.setState({activePanel:'default', activePark: null})}>
 							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 						</HeaderButton>}
 					>
-						Фогорафии парка
+						История парка №{this.state.activePark}
 					</PanelHeader>
-
-					<p className='settings_user_name'>Ivan Ivanovich</p>
+                    {this.infobase.map(infobase =>
+					<p key={infobase.id} >
+                    {infobase.info}
+                        </p>)}
 				</Panel>
 			</View>
 		)
