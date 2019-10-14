@@ -93,7 +93,7 @@ const IS_PLATFORM_ANDROID = (osName === ANDROID);
 const IS_PLATFORM_IOS = (osName === IOS);
 const TextButton = props => (
     <div>
-        Маршруты
+        Маршрут
         <Button
             className="Header_button"
             before={<Icon16Place/>}
@@ -131,12 +131,12 @@ class Transport extends React.Component {
         {
             case -1: connect.send("VKWebAppShowImages", {
                 images: [
-                    'https://sun9-33.userapi.com/c857532/v857532665/a2b9c/e9IXmeWP1nU.jpg',
+                    'https://sun9-48.userapi.com/c854324/v854324134/1270ef/8ZNIspwE5Gc.jpg',
                 ]
             }); break;
             case 3: connect.send("VKWebAppShowImages", {
                 images: [
-                    'https://sun9-49.userapi.com/c857532/v857532665/a2bab/zK8kABlOaOY.jpg',
+                    'https://sun9-21.userapi.com/c857528/v857528134/a7c75/azBhu7sW3So.jpg',
                 ]
             }); break;
         }
@@ -272,7 +272,7 @@ class Transport extends React.Component {
 				<Panel id='default'>
 					<div>
 						<PanelHeader>
-							Маршрут
+							Маршруты
 						</PanelHeader>
 						<Search value={this.state.search} onChange={this.onChange}/>
 						{this.thematics.length > 0 ?
