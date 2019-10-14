@@ -17,15 +17,8 @@ const Settings = props => (
                 Информация
             </PanelHeader>
             <Group title='О нас'>
-                <Cell
-                    size="l"
-                    bottomContent={                         //Zamenit'
-                        <Div className='sub_buttons'>
-                            <Button size="l" stretched component="a" href="https://vk.me/club187561580" >Написать разработчику</Button>
-                            <Button size="l" level="secondary"  stretched component="a" href="https://vk.com/club187561580" >Открыть сообщество</Button>
-                        </Div>
-                    }>
-                </Cell>
+                <Div>  <Button size="l"   component="a" href="https://vk.me/club187561580" >Написать разработчику</Button> </Div>
+                <Div> <Button size="l" level="secondary" component="a" href="https://vk.com/club187561580" >Открыть сообщество</Button> </Div>
             </Group>
             <Footer>
                 Информация взята с wikipedia.org и pitertransport.com

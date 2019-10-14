@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Panel, PanelHeader, ModalRoot,ModalPage, ModalPageHeader, Group, Gallery,
 	HeaderButton, IOS, ANDROID, platform, InfoRow, Button, Cell, Search, List} from '@vkontakte/vkui';
+import connect from '@vkontakte/vk-connect';
 
 import '../App.css';
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import Icon24Done from '@vkontakte/icons/dist/24/done';
+import Icon16Place from '@vkontakte/icons/dist/16/place';
 
 const routes = [
 	{id: 999, name: "Трамвай А", cost: '40', park: 'Трамвайный парк №7', sostav1:'ЛВС-86, 71-623',
@@ -89,7 +91,18 @@ const routes = [
 const osName=platform();
 const IS_PLATFORM_ANDROID = (osName === ANDROID);
 const IS_PLATFORM_IOS = (osName === IOS);
-
+const TextButton = props => (
+    <div>
+        Маршруты
+        <Button
+            className="Header_button"
+            before={<Icon16Place/>}
+            onClick={props.routepic}
+        >
+            Карта
+        </Button>
+    </div>
+);
 
 
 
@@ -109,8 +122,25 @@ class Transport extends React.Component {
 		};
 		this.onChange = this.onChange.bind(this);
 		this.metro = this.metro.bind(this);
+        this.routepic = this.routepic.bind(this);
 	}
 
+    routepic()
+    {
+	    switch(this.state.activeRoute-1000)
+        {
+            case -1: connect.send("VKWebAppShowImages", {
+                images: [
+                    'https://sun9-33.userapi.com/c857532/v857532665/a2b9c/e9IXmeWP1nU.jpg',
+                ]
+            }); break;
+            case 3: connect.send("VKWebAppShowImages", {
+                images: [
+                    'https://sun9-49.userapi.com/c857532/v857532665/a2bab/zK8kABlOaOY.jpg',
+                ]
+            }); break;
+        }
+    }
 
 	setActiveModal(activeModal) {
 		activeModal = activeModal || null;
@@ -170,7 +200,7 @@ class Transport extends React.Component {
 
 
 					<div className='route-info'>
-						<Group title='Маршрут'>
+						<Group title={<TextButton routepic={this.routepic}/>}>
 							{this.infobase.length > 0?
 								<list>
 									{this.infobase.map(infobase =>
@@ -203,7 +233,7 @@ class Transport extends React.Component {
 								<list>
 									{this.infobase.map(infobase =>
 										<Cell key={infobase.id} >
-											<InfoRow title='Стоиимость проезда'>
+											<InfoRow title='Стоимость проезда'>
 												{infobase.cost}
 											</InfoRow>
 										</Cell>)}
@@ -217,7 +247,7 @@ class Transport extends React.Component {
 										<Cell key={infobase.id} >
 											<InfoRow title='Подвижной состав'>
 												{infobase.sostav1}
-												{'sostav1' in infobase? <br/> : ''} {infobase.sostav2}
+												{'sostav2' in infobase? <br/> : ''} {infobase.sostav2}
 											</InfoRow>
 										</Cell>)}
 								</list>:
@@ -242,7 +272,7 @@ class Transport extends React.Component {
 				<Panel id='default'>
 					<div>
 						<PanelHeader>
-							Маршруты
+							Маршрут
 						</PanelHeader>
 						<Search value={this.state.search} onChange={this.onChange}/>
 						{this.thematics.length > 0 ?

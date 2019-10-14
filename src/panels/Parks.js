@@ -21,7 +21,6 @@ import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 
 import '../App.css';
-import t10031 from '../img/t10031.png';
 import Transport from "./Transport";
 import HeaderButton from "@vkontakte/vkui/dist/components/HeaderButton/HeaderButton";
 
@@ -120,6 +119,7 @@ class Parks extends React.Component {
 
 
 
+
 	render() {
 		return (
 
@@ -144,7 +144,7 @@ class Parks extends React.Component {
 								49, 43, 45, 25, 62, 29, 25, <u> 16 </u>
 							</InfoRow>
 							<InfoRow title='Подвижной состав'>
-								ЛВС-86, ЛВС-97, ЛМ-99АВН, ЛВС-2005, ЛМ-2008
+								ЛВС-86, ЛВС-97, ЛМ-99АВН, ЛВС-2005,<br/>  ЛМ-2008
 							</InfoRow>
 							<InfoRow title='Дата открытия'>
 								Октябрь 1907 года
@@ -169,7 +169,7 @@ class Parks extends React.Component {
 								3, 6, 10, 16, 20, 21, 23, 38, 40
 							</InfoRow>
 							<InfoRow title='Подвижной состав'>
-								ЛВС-86, ЛМ-99АВН, 71-88, ЛМ-68М3, ЛМ-68М2
+								ЛВС-86, ЛМ-99АВН, 71-88, ЛМ-68М3, <br/> ЛМ-68М2
 							</InfoRow>
 							<InfoRow title='Дата открытия'>
 								1876 год
@@ -193,7 +193,7 @@ class Parks extends React.Component {
 								9, 18, 19, 40, 47, 48 , 55, 61
 							</InfoRow>
 							<InfoRow title='Подвижной состав'>
-								ЛВС-86, ЛМ-68М2, ЛМ-99К, 71-631, 71-631-02, 84300М
+								ЛВС-86, ЛМ-68М2, ЛМ-99К, 71-631,<br/>  71-631-02, 84300М
 							</InfoRow>
 							<InfoRow title='Дата открытия'>
 								1917 год
@@ -217,7 +217,7 @@ class Parks extends React.Component {
 								3, 7, 10, 23, 24, 27, 39, 65
 							</InfoRow>
 							<InfoRow title='Подвижной состав'>
-								ЛВС-86, ЛМ-68М2, ЛМ-99К, ЛВС-97, 71-301, 71-631, 71-633
+								ЛВС-86, ЛМ-68М2, ЛМ-99К, ЛВС-97,<br/>  71-301, 71-631, 71-633
 							</InfoRow>
 							<InfoRow title='Дата открытия'>
 								1931 год
@@ -241,7 +241,7 @@ class Parks extends React.Component {
 								16, 36, 41, 52, 56, 60
 							</InfoRow>
 							<InfoRow title='Подвижной состав'>
-								ЛВС-86, ЛМ-68М2, ЛМ-99К, ЛВС-97, Alstom Citadis 301, 71-931М
+								ЛВС-86, ЛМ-68М2, ЛМ-99К, ЛВС-97, <br/>  Alstom Citadis 301, 71-931М
 							</InfoRow>
 							<InfoRow title='Дата открытия'>
 								1916 год
@@ -265,7 +265,7 @@ class Parks extends React.Component {
 								20, 38, 51, 57, 58, 61, 100
 							</InfoRow>
 							<InfoRow title='Подвижной состав'>
-								ЛВС-86, ЛВС-97, ЛМ-99, 71-931, 71-923, 71-922
+								ЛВС-86, ЛВС-97, ЛМ-99, 71-931, <br/> 71-923, 71-922
 							</InfoRow>
 							<InfoRow title='Дата открытия'>
 								1981 год

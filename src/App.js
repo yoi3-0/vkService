@@ -89,17 +89,6 @@ class App extends React.Component {
 
 		});
 
-		connect.send('VKWebAppGetAuthToken', {
-			app_id: 7150429,
-			scope: 'stories'
-		});
-		// connect.send('VKWebAppAllowNotifications', {});
-		connect.send('VKWebAppAllowMessagesFromGroup', {
-			group_id: 186987863,
-			key: 'jopa'
-		});
-
-		window.connect = this.connect;
 
 		this.setState({ popout: null });
 	}
