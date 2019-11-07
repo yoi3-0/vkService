@@ -7,6 +7,8 @@ import '../App.css';
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import Icon24Done from '@vkontakte/icons/dist/24/done';
 import Icon16Place from '@vkontakte/icons/dist/16/place';
+import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
+import Icon24Back from '@vkontakte/icons/dist/24/back';
 
 const routes = [
 	{id: 999, name: "Трамвай А", cost: '40', park: 'Трамвайный парк №7', sostav1:'ЛВС-86, 71-623',
@@ -136,9 +138,12 @@ class Transport extends React.Component {
             }); break;
             case 3: connect.send("VKWebAppShowImages", {
                 images: [
-                    'https://sun9-21.userapi.com/c857528/v857528134/a7c75/azBhu7sW3So.jpg',
+                    'https://sun9-39.userapi.com/c856524/v856524801/10946/UGCwpMTL8-c.jpg',
                 ]
             }); break;
+			default : this.setState({activePanel:'route_map'});
+				this.setActiveModal(null);
+				break;
         }
     }
 
@@ -284,6 +289,19 @@ class Transport extends React.Component {
 							</InfoRow>
 						}
 					</div>
+				</Panel>
+				<Panel id='route_map'>
+					<PanelHeader
+						left={<HeaderButton onClick={ () => this.setState({activePanel:'default', activePark: null})}>
+							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
+						</HeaderButton>}
+					>
+						Карта маршрута
+					</PanelHeader>
+					<iframe
+						id='frame1'
+						src="https://yandex.ru/map-widget/v1/?um=constructor%3A7f91a9199ab9f441e076e1c00f06506acd1958131fae5c035865d631ed1bcc04&amp;source=constructor"
+						width="504" height="519" frameBorder="0"></iframe>
 				</Panel>
 			</View>
 		);
