@@ -20,6 +20,7 @@ import Icon16Pin from '@vkontakte/icons/dist/16/pin';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 
+
 import '../App.css';
 import Transport from "./Transport";
 import HeaderButton from "@vkontakte/vkui/dist/components/HeaderButton/HeaderButton";
@@ -310,10 +311,6 @@ class Parks extends React.Component {
 						<h4 key={infobase.id}> {infobase.name}</h4>
                     {infobase.info}
                         </p>)}
-					<iframe
-						id='frame1'
-						src="https://yandex.ru/map-widget/v1/?um=constructor%3A7f91a9199ab9f441e076e1c00f06506acd1958131fae5c035865d631ed1bcc04&amp;source=constructor"
-						width="504" height="519" frameBorder="0"></iframe>
 				</Panel>
 			</View>
 		)
