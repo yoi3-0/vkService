@@ -157,6 +157,24 @@ class Transport extends React.Component {
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Afc7f6f3aa10d404b524e231bb874cd992e95a06cd03f73d289fd0722cf3a1425&amp;source=constructor"
 					width="770" height="376" frameBorder="0"></iframe>
 			},); break;
+			case 7: this.setState({
+				activeIframe: <iframe
+					id='7'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A32e7eec6a3f33ae4a5d004c76fb816b4dce0bf5eea5fd7645d274a97ea6cbcdd&amp;source=constructor"
+					width="468" height="408" frameBorder="0"></iframe>
+			},); break;
+			case 8: this.setState({
+				activeIframe: <iframe
+					if='8'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad41bafc0fbdd89fa0e7b11c84b74359b332ce7b8f40d55214e1262cb47d84169&amp;source=constructor"
+					width="658" height="374" frameBorder="0"></iframe>
+			},); break;
+			case 9: this.setState({
+				activeIframe: <iframe
+					id='9'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A929466ef9c2d8228afde0d6133fcdc657d7e9c1d2cbca5506f7b7b58667872b1&amp;source=constructor"
+					width="480" height="400" frameBorder="0"></iframe>
+			},); break;
 			default: this.setState({
 				activeIframe: 'Карта маршрута не найдена! Пожалуйста, сообщите, если Вы заметили это сообщение.'
 			},); break;
