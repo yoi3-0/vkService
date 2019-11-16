@@ -115,7 +115,8 @@ class Transport extends React.Component {
 			activeModal: null,
 			modalHistory: [],
 			search: '',
-            activeRoute:''
+            activeRoute:'',
+			activeIframe: null
 		};
 		this.modalBack = () => {
 			this.setActiveModal(this.state.modalHistory[this.state.modalHistory.length - 2]);
@@ -127,21 +128,39 @@ class Transport extends React.Component {
 
     routepic()
     {
-    	let activePanel=this.state.activeRoute-1000;
     	let activeModal=null;
     	let modalHistory=[];       //time to kostil
-    	activePanel+='';
-    	console.log('panel#'+activePanel);
-	    switch(this.state.activeRoute-1000)
-        {
-           /* case -1: connect.send("VKWebAppShowImages", {
-                images: [
-                    'https://sun9-48.userapi.com/c854324/v854324134/1270ef/8ZNIspwE5Gc.jpg',
-                ]
-            }); break; */
-            case 3: this.setState({activePanel, activeModal, modalHistory}); break;
-			default : this.setState({activePanel, activeModal, modalHistory}); break;
-        }
+    	console.log('history cleared');
+		this.setState({
+			activePanel: 'route_map', activeModal, modalHistory,
+			activeIframe: <iframe
+				if='-1'
+				src="https://yandex.ru/map-widget/v1/?um=constructor%3A63846009f7e77a55a9e219f609f3832491a0417e2b54b9819ceb00b42b0220d0&amp;source=constructor"
+				width="396" height="290" frameBorder="0"></iframe>
+		},);
+    	switch (this.state.activeRoute-1000) {
+			case -1: this.setState({
+				activeIframe: <iframe
+					id='-1'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A63846009f7e77a55a9e219f609f3832491a0417e2b54b9819ceb00b42b0220d0&amp;source=constructor"
+					width="396" height="290" frameBorder="0"></iframe>
+			},); break;
+			case 3: this.setState({
+				activeIframe: <iframe
+					id='3'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A7f91a9199ab9f441e076e1c00f06506acd1958131fae5c035865d631ed1bcc04&amp;source=constructor"
+					width="504" height="519" frameBorder="0"></iframe>
+			},); break;
+			case 6: this.setState({
+				activeIframe: <iframe
+					id='6'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3Afc7f6f3aa10d404b524e231bb874cd992e95a06cd03f73d289fd0722cf3a1425&amp;source=constructor"
+					width="770" height="376" frameBorder="0"></iframe>
+			},); break;
+			default: this.setState({
+				activeIframe: 'Карта маршрута не найдена! Пожалуйста, сообщите, если Вы заметили это сообщение.'
+			},); break;
+		}
     }
 
 	setActiveModal(activeModal) {
@@ -287,28 +306,15 @@ class Transport extends React.Component {
 						}
 					</div>
 				</Panel>
-				<Panel id='-1'>
+				<Panel id='route_map'>
 					<PanelHeader
 						left={<HeaderButton onClick={ () => this.setState({activePanel:'default', activePark: null})}>
 							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 						</HeaderButton>}
 					>
-						Карта маршрута
+						Карта маршрута {this.state.activeRoute-1000>-1? this.state.activeRoute-1000 : (this.state.activeRoute-1000===-1? 'A': ' ') }
 					</PanelHeader>
-					//iframe
-				</Panel>
-				<Panel id='3'>
-					<PanelHeader
-						left={<HeaderButton onClick={ () => this.setState({activePanel:'default', activePark: null})}>
-							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
-						</HeaderButton>}
-					>
-						Карта маршрута
-					</PanelHeader>
-				<iframe
-					id='frame3'
-					src="https://yandex.ru/map-widget/v1/?um=constructor%3A7f91a9199ab9f441e076e1c00f06506acd1958131fae5c035865d631ed1bcc04&amp;source=constructor"
-					width="504" height="519" frameBorder="0"></iframe>
+					{this.state.activeIframe}
 				</Panel>
 			</View>
 		);
