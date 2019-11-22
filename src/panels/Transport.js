@@ -133,47 +133,98 @@ class Transport extends React.Component {
     	console.log('history cleared');
 		this.setState({
 			activePanel: 'route_map', activeModal, modalHistory,
-			activeIframe: <iframe
-				if='-1'
-				src="https://yandex.ru/map-widget/v1/?um=constructor%3A63846009f7e77a55a9e219f609f3832491a0417e2b54b9819ceb00b42b0220d0&amp;source=constructor"
-				width="396" height="290" frameBorder="0"></iframe>
-		},);
+			},);
     	switch (this.state.activeRoute-1000) {
 			case -1: this.setState({
 				activeIframe: <iframe
 					id='-1'
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A63846009f7e77a55a9e219f609f3832491a0417e2b54b9819ceb00b42b0220d0&amp;source=constructor"
-					width="396" height="290" frameBorder="0"></iframe>
+					width="396" height="290" frameBorder="0"/>
 			},); break;
 			case 3: this.setState({
 				activeIframe: <iframe
 					id='3'
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A7f91a9199ab9f441e076e1c00f06506acd1958131fae5c035865d631ed1bcc04&amp;source=constructor"
-					width="504" height="519" frameBorder="0"></iframe>
+					width="504" height="519" frameBorder="0"/>
 			},); break;
 			case 6: this.setState({
 				activeIframe: <iframe
 					id='6'
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Afc7f6f3aa10d404b524e231bb874cd992e95a06cd03f73d289fd0722cf3a1425&amp;source=constructor"
-					width="770" height="376" frameBorder="0"></iframe>
+					width="770" height="376" frameBorder="0"/>
 			},); break;
 			case 7: this.setState({
 				activeIframe: <iframe
 					id='7'
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A32e7eec6a3f33ae4a5d004c76fb816b4dce0bf5eea5fd7645d274a97ea6cbcdd&amp;source=constructor"
-					width="468" height="408" frameBorder="0"></iframe>
+					width="468" height="408" frameBorder="0"/>
 			},); break;
 			case 8: this.setState({
 				activeIframe: <iframe
 					if='8'
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad41bafc0fbdd89fa0e7b11c84b74359b332ce7b8f40d55214e1262cb47d84169&amp;source=constructor"
-					width="658" height="374" frameBorder="0"></iframe>
+					width="658" height="374" frameBorder="0"/>
 			},); break;
 			case 9: this.setState({
 				activeIframe: <iframe
 					id='9'
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A929466ef9c2d8228afde0d6133fcdc657d7e9c1d2cbca5506f7b7b58667872b1&amp;source=constructor"
-					width="480" height="400" frameBorder="0"></iframe>
+					width="480" height="400" frameBorder="0"/>
+			},); break;  														 //check next
+			case 10: this.setState({
+				activeIframe: <iframe
+					id='10'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A683b4a25b6424b46b06f15b849764f0fcc88ee47452527e1c34fd7e7cf0b4e8b&amp;source=constructor"
+					width="568" height="541" frameBorder="0"/>
+			},); break;
+			case 16: this.setState({
+				activeIframe: <iframe
+					if='16'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A4bd146a667ac3738c36019924cef94b80c43bec49c06b32a1525bda352bab5a4&amp;source=constructor"
+					width="637" height="382" frameBorder="0"/>
+			},); break;
+			case 18: this.setState({
+				activeIframe: <iframe
+					if='18'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A6ae1029660ec803d4016cb980ba9d08d896df5c61241eb70c2fa7e29310889e9&amp;source=constructor"
+					width="421" height="435" frameBorder="0"/>
+			},); break;
+			case 19: this.setState({
+				activeIframe: <iframe
+					id='19'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A3b17109f41809759cf80f7422d9cb581944f121659d29990628cb18111148b6d&amp;source=constructor"
+					width="901" height="341" frameBorder="0"/>
+			},); break;
+			case 20: this.setState({
+				activeIframe: <iframe
+								id='20'
+								src="https://yandex.ru/map-widget/v1/?um=constructor%3A6c552aaf9b8e635b2c7c75167474166bdf0dabf6274aaf09046cec5946fc5b63&amp;source=constructor"
+								width="527" height="569" frameBorder="0"/>
+			},); break;
+			case 21: this.setState({
+				activeIframe: <iframe
+								id='21'
+								src="https://yandex.ru/map-widget/v1/?um=constructor%3A479e9bc43fd1fd0d460ea954e1246b39d7cefae1e5d16b7ff8c1c4def16448a8&amp;source=constructor"
+								width="406" height="512" frameBorder="0"/>
+			},); break;
+			case 23: this.setState({
+				activeIframe:
+					<iframe
+					id='23'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3Aeb574e1854c4f8850b5ccdade5e1e2cc5e78f54b91fae4a9943ab15e0af8bf17&amp;source=constructor"
+					width="510" height="416" frameBorder="0"/>
+			},); break;
+			case 24: this.setState({
+				activeIframe: <iframe
+					if='24'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3Af9c0774caae457282d004d46d8c9d4a7ea20a9d39557f053bed475a1229585ef&amp;source=constructor"
+					width="340" height="339" frameBorder="0"/>
+			},); break;
+			case 25: this.setState({
+				activeIframe: <iframe
+					if='25'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3Af9c0774caae457282d004d46d8c9d4a7ea20a9d39557f053bed475a1229585ef&amp;source=constructor"
+					width="340" height="339" frameBorder="0"/>
 			},); break;
 			default: this.setState({
 				activeIframe: 'Карта маршрута не найдена! Пожалуйста, сообщите, если Вы заметили это сообщение.'
