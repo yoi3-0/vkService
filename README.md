@@ -10,35 +10,22 @@
 
 </div>
 
-# VK Mini Apps: @vkontakte/create-vk-mini-app
+# VK Mini App: Справочник Петербургского трамвая
 
-## How to install
+## Реализованные возможности:
 
-### Create VK Mini App with gh-pages deploy
+### Маршруты
 
-`npx @vkontakte/create-vk-mini-app <app-directory-name>`
+`Посмотреть карту, узнать подвижной состав, стоимость проезда и т.п.`
 
-### Create VK Mini App with Zeit deploy
+### Обслуживащие предприятия
+`Информация о трамвайных парках, небольшой экскурс в их историю`
 
-Firstly, you have to create Zeit account and connect it with your GitHub profile — https://zeit.co/
 
-`npx @vkontakte/create-vk-mini-app <app-directory-name> --zeit`
+## In progress: 
 
-### Create VK Mini App with Surge deploy
+### Доделать карты маршрутов
+`50%`.
 
-Firstly, you have to create Surge account and Surge-domain — https://surge.sh/
-
-`npx @vkontakte/create-vk-mini-app <app-directory-name> --surge <surge-domain>`
-
-## How to start work with app
-
-Go to created folder and run:
-`yarn start` || `npm start` — this will start dev server with hot reload on `localhost:10888`.
-
-`yarn run build` || `npm run build` — this will build production bundle, with tree-shaking, uglify and all this modern fancy stuff
-
-[npm]: https://img.shields.io/npm/v/@vkontakte/create-vk-mini-app.svg
-[npm-url]: https://npmjs.com/package/@vkontakte/create-vk-mini-app
-
-[deps]: https://img.shields.io/david/vkcom/create-vk-mini-app.svg
-[deps-url]: https://david-dm.org/vkcom/create-vk-mini-app
+### Сделать поиск по улицам
+`При ввода адреса отображать ближайшие маршруты` 

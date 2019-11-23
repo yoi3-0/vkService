@@ -197,15 +197,15 @@ class Transport extends React.Component {
 			},); break;
 			case 20: this.setState({
 				activeIframe: <iframe
-								id='20'
-								src="https://yandex.ru/map-widget/v1/?um=constructor%3A6c552aaf9b8e635b2c7c75167474166bdf0dabf6274aaf09046cec5946fc5b63&amp;source=constructor"
-								width="527" height="569" frameBorder="0"/>
+					id='20'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A6c552aaf9b8e635b2c7c75167474166bdf0dabf6274aaf09046cec5946fc5b63&amp;source=constructor"
+					width="527" height="569" frameBorder="0"/>
 			},); break;
 			case 21: this.setState({
 				activeIframe: <iframe
-								id='21'
-								src="https://yandex.ru/map-widget/v1/?um=constructor%3A479e9bc43fd1fd0d460ea954e1246b39d7cefae1e5d16b7ff8c1c4def16448a8&amp;source=constructor"
-								width="406" height="512" frameBorder="0"/>
+					id='21'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A479e9bc43fd1fd0d460ea954e1246b39d7cefae1e5d16b7ff8c1c4def16448a8&amp;source=constructor"
+					width="406" height="512" frameBorder="0"/>
 			},); break;
 			case 23: this.setState({
 				activeIframe:
@@ -222,9 +222,102 @@ class Transport extends React.Component {
 			},); break;
 			case 25: this.setState({
 				activeIframe: <iframe
-					if='25'
-					src="https://yandex.ru/map-widget/v1/?um=constructor%3Af9c0774caae457282d004d46d8c9d4a7ea20a9d39557f053bed475a1229585ef&amp;source=constructor"
-					width="340" height="339" frameBorder="0"/>
+					id='25'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa445a311322353b6315e0409c74ac4568b105e362e5ff6bf268fa30acc72497f&amp;source=constructor"
+					width="365" height="340" frameBorder="0"/>
+			},); break;
+			case 27: this.setState({
+				activeIframe: <iframe
+					if='27'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A000016f800b2f19645d821ad900aa0443b491e6bc23270259b1b67ea5e9d2d29&amp;source=constructor"
+					width="320" height="322" frameBorder="0"/>
+			},); break;
+			case 29: this.setState({
+				activeIframe: <iframe
+					id='29'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A90206a751e8dde7390eba3e30ce5a6757c25b7b13a85286807539d3564483254&amp;source=constructor"
+					width="425" height="477" frameBorder="0"/>
+			},); break;
+			case 36: this.setState({
+				activeIframe: <iframe
+					if='36'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A086c352ba47b5cccb73d7ddbc63be8761825bd92843e04bcd3381d1d1d828573&amp;source=constructor"
+					width="691" height="357" frameBorder="0"/>
+			},); break;
+			case 38: this.setState({
+				activeIframe: <iframe
+					id='38'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3Abcfb23aa46ef64e3d258c61d3889b3b729f24edb6fc54db7f09482ec0a5f8c01&amp;source=constructor"
+					width="371" height="320" frameBorder="0"/>
+			},); break;
+			case 39: this.setState({
+				activeIframe: <iframe
+					if='39'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A3262833b49476a1f2ea90588000b41ff634a145be52b0d41bb406af99e654eca&amp;source=constructor"
+					width="383" height="501" frameBorder="0"/>
+			},); break;
+			case 40: this.setState({
+				activeIframe: <iframe
+					id='40'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3A174983bbfb82adaa4616b80cd0559058fe872806ffb7ae86db42afb77a8645c2&amp;source=constructor"
+					width="523" height="523" frameBorder="0"/>
+			},); break;
+			case 41: this.setState({
+				activeIframe: <iframe
+					id='41'
+					src="https://yandex.ru/map-widget/v1/?um=constructor%3Aed6d7ee2421eb71cde0a81015b3e80e9d1fa611e974ea262ec53402838f9141b&amp;source=constructor"
+					width="481" height="553" frameBorder="0"/>
+			},); break;
+			case 43: this.setState({
+				activeIframe:
+			},); break;
+			case 45: this.setState({
+				activeIframe:
+			},); break;
+			case 47: this.setState({
+				activeIframe:
+			},); break;
+			case 48: this.setState({
+				activeIframe:
+			},); break;
+			case 49: this.setState({
+				activeIframe:
+			},); break;
+			case 51: this.setState({
+				activeIframe:
+			},); break;
+			case 52: this.setState({
+				activeIframe:
+			},); break;
+			case 55: this.setState({
+				activeIframe:
+			},); break;
+			case 57: this.setState({
+				activeIframe:
+			},); break;
+			case 58: this.setState({
+				activeIframe:
+			},); break;
+			case 59: this.setState({
+				activeIframe:
+			},); break;
+			case 60: this.setState({
+				activeIframe:
+			},); break;
+			case 61: this.setState({
+				activeIframe:
+			},); break;
+			case 62: this.setState({
+				activeIframe:
+			},); break;
+			case 63: this.setState({
+				activeIframe:
+			},); break;
+			case 64: this.setState({
+				activeIframe:
+			},); break;
+			case 100: this.setState({
+				activeIframe:
 			},); break;
 			default: this.setState({
 				activeIframe: 'Карта маршрута не найдена! Пожалуйста, сообщите, если Вы заметили это сообщение.'
