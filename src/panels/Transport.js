@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Panel, PanelHeader, ModalRoot,ModalPage, ModalPageHeader, Group, Gallery, 
+import { View, Panel, PanelHeader, ModalRoot,ModalPage, ModalPageHeader, Group,  Placeholder,
 	HeaderButton, IOS, ANDROID, platform, InfoRow,  Button, Cell,  Avatar, Search, List} from '@vkontakte/vkui';
 import connect from '@vkontakte/vk-connect';
 
@@ -450,7 +450,7 @@ class Transport extends React.Component {
 					width="411" height="345" frameBorder="0"/>
 			},); break;
 			default: this.setState({
-				activeIframe: <Group> Карта маршрута не найдена! Пожалуйста, сообщите, если Вы заметили это сообщение. </Group>
+				activeIframe: <Placeholder> Карта маршрута не найдена! Пожалуйста, сообщите, если Вы заметили это сообщение. </Placeholder>
 			},); break;
 		}
     }
@@ -499,7 +499,6 @@ class Transport extends React.Component {
 				<ModalPage
 					className='modal-page'
 					id={'tram'}
-					settlingHeight='30' //ono rabotaet ili net? chto za fignya???
 					onClose={this.modalBack}
 					header={
 						<ModalPageHeader
@@ -606,9 +605,7 @@ class Transport extends React.Component {
 						<List>
 							{this.thematics.map(thematic => <Cell key={thematic.id} onClick={() => this.setActiveModal(thematic.id)} >{thematic.name}</Cell>)}
 						</List>:
-							<InfoRow className='zaglushka'>
-								<Group> Маршрут не найден. </Group>
-							</InfoRow>
+								<Placeholder> Маршрут не найден. </Placeholder>
 						}
 					</div>
 				</Panel>

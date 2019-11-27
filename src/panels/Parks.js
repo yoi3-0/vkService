@@ -26,9 +26,6 @@ import Transport from "./Transport";
 import HeaderButton from "@vkontakte/vkui/dist/components/HeaderButton/HeaderButton";
 
 const osName=platform();
-const blueBackground = {
-	backgroundColor: 'var(--accent)'
-};
 
 const parkinfo = [
     {id: '1', name: 'Трамвайный парк №1 (имени Коняшина)', info: 'Открыт в октябре 1907 года под названием «Московский трамвайный парк».\n' +
