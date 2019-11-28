@@ -11,7 +11,12 @@
 margin-left: 10px;
 border: white !important;;
 }
-
+.ButGroup{
+    display: flex !important;
+    align-content: center;
+    margin: auto;
+    padding: auto;
+}
 .BugBut{
     padding-top: 2px;
     margin-top: 30px;

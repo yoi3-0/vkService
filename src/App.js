@@ -7,7 +7,7 @@ import { Root, ScreenSpinner, Epic, Tabbar, TabbarItem} from '@vkontakte/vkui';
 
 import Icon28InfoOutline from '@vkontakte/icons/dist/28/info_outline';
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
-import Icon28FavoriteOutline from '@vkontakte/icons/dist/28/favorite_outline';
+import Icon28Place from '@vkontakte/icons/dist/28/place';
 
 import Transport from './panels/Transport';
 import Parks from './panels/Parks';
@@ -125,7 +125,7 @@ class App extends React.Component {
 								data-story='parks'
 								text= {this.state.translations.parks}
 							>
-								<Icon28FavoriteOutline />
+								<Icon28Place/>
 							</TabbarItem>
 
 							<TabbarItem

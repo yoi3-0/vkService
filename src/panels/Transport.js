@@ -475,8 +475,8 @@ class Transport extends React.Component {
 		let s= new Date().toLocaleString();    												//time
 		console.log(s);
 		let newstr = s.slice(s.indexOf(",")+2);
-		console.log(newstr>'00:00:00' && newstr<'05:00:00');  //snackbar вылазит как говно! проверку пнренести в if
-		if (newstr>'11:50:00') this.setState({snackbar:    //this.routes.{this.state.activeRoute}.time
+		console.log(newstr>'00:20:00' && newstr<'05:00:00');  //snackbar вылазит как говно! проверку пнренести в if
+		if (newstr>'00:20:00' && newstr<'05:00:00') this.setState({snackbar:    //this.routes.{this.state.activeRoute}.time
 				<Snackbar before={<Avatar size={24} style={{backgroundColor: 'var(--accent)'}}><Icon24DoNotDisturb fill="#fff" width={14} height={14} /></Avatar>}>Маршут сейчас не работает! </Snackbar>});
 		if (activeModal === null) {
 			modalHistory = [];
@@ -619,13 +619,13 @@ class Transport extends React.Component {
 							left={IS_PLATFORM_ANDROID && <HeaderButton onClick={this.modalBack}><Icon24Cancel /></HeaderButton>}
 							right={<HeaderButton onClick={this.modalBack}>{IS_PLATFORM_IOS ? 'Готово' : <Icon24Done />}</HeaderButton>}
 						>
-							<Placeholder className='ModalText'>Сообщить о проблеме</Placeholder>
+							<Div className='ModalText'>Сообщить о проблеме</Div>
 						</ModalPageHeader>
 					}
 				>
 					<Div>
 					<Group>
-						Чтобы сообщить об ошибке, напишите нам в личные сообщения
+						<Placeholder>Чтобы сообщить об ошибке, напишите нам в личные сообщения </Placeholder>
 						<Button size="l"  className='BugBut'  component="a" href="https://vk.me/club187561580">Перейти в диалог</Button>
 					</Group>
 					</Div>
