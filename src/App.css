@@ -11,6 +11,14 @@
 margin-left: 10px;
 border: white !important;;
 }
+
+.BugBut{
+    padding-top: 2px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 2px;
+    display: compact;
+}
 .routePhoto{
     margin-top: 5px;
     size: 10px;

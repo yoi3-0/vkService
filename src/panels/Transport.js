@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Panel, PanelHeader, ModalRoot,ModalPage, ModalPageHeader, Group,  Placeholder,
-	HeaderButton, IOS, ANDROID, platform, InfoRow,  Button, Cell,  Avatar, Search, List} from '@vkontakte/vkui';
+import {
+	View, Panel, PanelHeader, ModalRoot, ModalPage, ModalPageHeader, Group, Placeholder, Snackbar, PopoutWrapper,
+	HeaderButton, IOS, ANDROID, platform, InfoRow, Button, Cell, Avatar, Search, List, Div
+} from '@vkontakte/vkui';
 import connect from '@vkontakte/vk-connect';
 
 import '../App.css';
@@ -9,6 +11,8 @@ import Icon24Done from '@vkontakte/icons/dist/24/done';
 import Icon16Place from '@vkontakte/icons/dist/16/place';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
+import Icon24DoNotDisturb from '@vkontakte/icons/dist/24/do_not_disturb';
+import Icon24Bug from '@vkontakte/icons/dist/24/bug';
 
 const routes = [
 	{id: 998, name: "Трамвай Т1", cost: '100', park: 'Трамвайный парк №3', sostav1:'ЛМ-33 (реплика)', col1:'red', col2:'red',
@@ -142,10 +146,12 @@ class Transport extends React.Component {
 			modalHistory: [],
 			search: '',
             activeRoute:'',
-			activeIframe: null
+			activeIframe: null,
+			snackbar: null,
 		};
 		this.modalBack = () => {
 			this.setActiveModal(this.state.modalHistory[this.state.modalHistory.length - 2]);
+			this.setState({snackbar:null});
 		};
 		this.onChange = this.onChange.bind(this);
 		this.metro = this.metro.bind(this);
@@ -466,7 +472,12 @@ class Transport extends React.Component {
 		activeModal = activeModal || null;
 		let activeRoute='';
 		let modalHistory = this.state.modalHistory ? [...this.state.modalHistory] : [];
-
+		let s= new Date().toLocaleString();    												//time
+		console.log(s);
+		let newstr = s.slice(s.indexOf(",")+2);
+		console.log(newstr>'00:00:00' && newstr<'05:00:00');  //snackbar вылазит как говно! проверку пнренести в if
+		if (newstr>'11:50:00') this.setState({snackbar:    //this.routes.{this.state.activeRoute}.time
+				<Snackbar before={<Avatar size={24} style={{backgroundColor: 'var(--accent)'}}><Icon24DoNotDisturb fill="#fff" width={14} height={14} /></Avatar>}>Маршут сейчас не работает! </Snackbar>});
 		if (activeModal === null) {
 			modalHistory = [];
 		} else if (modalHistory.indexOf(activeModal) !== -1) {
@@ -484,7 +495,8 @@ class Transport extends React.Component {
 			modalHistory
 		});
 	};
-	onChange (search) { this.setState({ search }); }
+	onChange (search) { if (search.length>15){ alert('No!');}  else      //FIX PLS!
+		this.setState({ search }); }
 
 	get thematics () {
 		const search = this.state.search.toLowerCase();
@@ -523,11 +535,10 @@ class Transport extends React.Component {
 					}
 				>
 
-
 					<div className='route-info'>
 						<Group title={<TextButton routepic={this.routepic}/>}>
 							{this.infobase.length > 0?
-								<list>
+								<List>
 									{this.infobase.map(infobase =>
 										<Cell key={infobase.id} >
 											<InfoRow title='Конечные остановки'>
@@ -555,15 +566,15 @@ class Transport extends React.Component {
 												{'schedule' in infobase? infobase.schedule : ''}
 											</InfoRow>
 										</Cell>)}
-								</list>:
-								<inforow className='zaglushka'>
+								</List>:
+								<InfoRow className='zaglushka'>
 									Нет информации о пути следования
-								</inforow>
+								</InfoRow>
 							}
 						</Group>
 						<Group title='Другая информация'>
 							{this.infobase.length > 0?
-								<list>
+								<List>
 									{this.infobase.map(infobase =>
 										<Cell key={infobase.id} >
 											<InfoRow title='Стоимость проезда'>
@@ -586,18 +597,38 @@ class Transport extends React.Component {
 									)}
 									{this.infobase.map(infobase =>
 										<Cell key={infobase.id} >
-											<InfoRow title='Последнее изменение'>
+											<InfoRow title='Последнее изменение маршрута'>
 												{infobase.lchange}
 											</InfoRow>
 										</Cell>
 									)}
-								</list>:
-								<inforow className='zaglushka'>
+								</List>:
+								<InfoRow className='zaglushka'>
 									О данном маршруте нет дополнительной информации
-								</inforow>
+								</InfoRow>
 							}
 						</Group>
 					</div>
+				</ModalPage>
+				<ModalPage
+					className='modal-page'
+					id={'Bugreport'}
+					onClose={this.modalBack}
+					header={
+						<ModalPageHeader
+							left={IS_PLATFORM_ANDROID && <HeaderButton onClick={this.modalBack}><Icon24Cancel /></HeaderButton>}
+							right={<HeaderButton onClick={this.modalBack}>{IS_PLATFORM_IOS ? 'Готово' : <Icon24Done />}</HeaderButton>}
+						>
+							<Placeholder className='ModalText'>Сообщить о проблеме</Placeholder>
+						</ModalPageHeader>
+					}
+				>
+					<Div>
+					<Group>
+						Чтобы сообщить об ошибке, напишите нам в личные сообщения
+						<Button size="l"  className='BugBut'  component="a" href="https://vk.me/club187561580">Перейти в диалог</Button>
+					</Group>
+					</Div>
 				</ModalPage>
 			</ModalRoot>
 		);
@@ -612,7 +643,9 @@ class Transport extends React.Component {
 			<View id={this.props.id} activePanel={this.state.activePanel} modal={modal}>
 				<Panel id='default'>
 					<div>
-						<PanelHeader>
+						<PanelHeader
+						left={<HeaderButton onClick={() => this.setState({activeModal:'Bugreport'})} ><Icon24Bug/></HeaderButton>}
+						>
 							Маршруты
 						</PanelHeader>
 						<Search value={this.state.search} onChange={this.onChange}/>
@@ -635,6 +668,7 @@ class Transport extends React.Component {
 					<div className='mapview'>
 					{this.state.activeIframe}
 					</div>
+					{this.state.snackbar}
 				</Panel>
 			</View>
 		);

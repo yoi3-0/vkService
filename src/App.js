@@ -3,7 +3,7 @@ import connect from '@vkontakte/vk-connect';
 import '@vkontakte/vkui/dist/vkui.css';
 import './App.css';
 
-import { Root, ScreenSpinner, Epic, Tabbar, TabbarItem, View, Snackbar, Avatar } from '@vkontakte/vkui';
+import { Root, ScreenSpinner, Epic, Tabbar, TabbarItem} from '@vkontakte/vkui';
 
 import Icon28InfoOutline from '@vkontakte/icons/dist/28/info_outline';
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
@@ -77,11 +77,11 @@ class App extends React.Component {
 								schedule: data,
 								user: event.detail.data
 							});
-						});
+						}); break;
 				case 'VKWebAppUpdateConfig':
 					let schemeAttribute = document.createAttribute('scheme');
 					schemeAttribute.value = event.detail.data.scheme ? event.detail.data.scheme : 'client_light';
-					document.body.attributes.setNamedItem(schemeAttribute);
+					document.body.attributes.setNamedItem(schemeAttribute); break;
 				default:
 					break;
 			}
