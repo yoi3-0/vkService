@@ -3,7 +3,7 @@ import connect from '@vkontakte/vk-connect';
 import '@vkontakte/vkui/dist/vkui.css';
 import './App.css';
 
-import { Root, ScreenSpinner, Epic, Tabbar, TabbarItem} from '@vkontakte/vkui';
+import {Root, Epic, Tabbar, TabbarItem, Alert} from '@vkontakte/vkui';
 
 import Icon28InfoOutline from '@vkontakte/icons/dist/28/info_outline';
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
@@ -22,7 +22,7 @@ class App extends React.Component {
 		this.state = {
 			activeView: 'default',
 			activeStory: 'transport',
-			popout: <ScreenSpinner size='large' />,
+			popout: null,
 			snackbar: null,
 			urlVars: this.getUrlVars(),
 			urlObj: this.objToQueryString(this.getUrlVars()),
@@ -37,6 +37,25 @@ class App extends React.Component {
 
 			}
 		};
+		this.openAlert = this.openAlert.bind(this);
+		this.closePopout = this.closePopout.bind(this);
+	}
+	openAlert () {
+		this.setState({ popout:
+				<Alert
+					actions={[{
+						title: 'ОК',
+						autoclose: true,
+						style: 'cancel'
+					}]}
+					onClose={this.closePopout}
+				>
+					<p>Сервис в списке избранных!</p>
+				</Alert>
+		});
+	}
+	closePopout () {
+		this.setState({ popout: null });
 	}
 
 	getUrlVars() {
@@ -60,29 +79,16 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch('https://demo135.bravo.vkhackathon.com/api/translations?vk_language=' + (this.state.urlVars['vk_language'] || 'ru'))
-			.then(res => res.json())
-			.then((data) => {
-				this.setState({ translations: data });
-			});
-
 		console.log(this.state.urlVars);
 		connect.subscribe((event) => {
 			switch (event.detail.type) {
 				case 'VKWebAppGetUserInfoResult':
-					fetch(`https://demo135.bravo.vkhackathon.com/api/schedule?${this.state.urlObj}`)
-						.then(res => res.json())
-						.then((data) => {
-							this.setState({
-								schedule: data,
-								user: event.detail.data
-							});
-						}); break;
+					 break;
 				case 'VKWebAppUpdateConfig':
-					let schemeAttribute = document.createAttribute('scheme');
-					schemeAttribute.value = event.detail.data.scheme ? event.detail.data.scheme : 'client_light';
-					document.body.attributes.setNamedItem(schemeAttribute); break;
-				default:
+					 break;
+				case 'VKWebAppAddToFavoritesResult': console.log(event.detail.data.result); this.openAlert();
+					break;
+				default: console.log(event.detail.type);
 					break;
 			}
 			console.log('new message', event.detail.type, event.detail.data);
@@ -140,7 +146,7 @@ class App extends React.Component {
 					}>
 					<Transport id='transport' go={ this.go } />
 					<Parks id='parks' go={ this.go } />
-					<Settings id='settings' user={ this.state.user } schedule={ this.state.schedule } go={ this.go } />
+					<Settings id='settings' popout={this.state.popout} schedule={ this.state.schedule } go={ this.go } />
 				</Epic>
 			</Root>
 		);
