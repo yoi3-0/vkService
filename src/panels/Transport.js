@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-	View, Panel, PanelHeader, ModalRoot, ModalPage, ModalPageHeader, Group, Placeholder, Snackbar, PopoutWrapper,
+	View, Panel, PanelHeader, ModalRoot, ModalPage, ModalPageHeader, Group,Alert, Placeholder, Snackbar, PopoutWrapper,
 	HeaderButton, IOS, ANDROID, platform, InfoRow, Button, Cell, Avatar, Search, List, Div
 } from '@vkontakte/vkui';
 import connect from '@vkontakte/vk-connect';
@@ -148,16 +148,36 @@ class Transport extends React.Component {
             activeRoute:'',
 			activeIframe: null,
 			snackbar: null,
+			popout: null,
 		};
 		this.modalBack = () => {
 			this.setActiveModal(this.state.modalHistory[this.state.modalHistory.length - 2]);
 			this.setState({snackbar:null});
 		};
+		this.openAlert = this.openAlert.bind(this);
+		this.closePopout = this.closePopout.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.metro = this.metro.bind(this);
         this.routepic = this.routepic.bind(this);
 	}
-
+	openAlert () {
+		this.setState({ popout:
+				<Alert
+					actions={[{
+						title: 'ОК',
+						autoclose: true,
+						style: 'cancel'
+					}]}
+					onClose={this.closePopout}
+				>
+					<h2>Ограничение на количество символов</h2>
+					<p>Нельзя вводить больше 15 символов в поиск.</p>
+				</Alert>
+		});
+	}
+	closePopout () {
+		this.setState({ popout: null });
+	}
     routepic()
     {
     	let activeModal=null;
@@ -495,7 +515,7 @@ class Transport extends React.Component {
 			modalHistory
 		});
 	};
-	onChange (search) { if (search.length>15){ alert('No!');}  else      //FIX PLS!
+	onChange (search) { if (search.length>15){this.openAlert()}  else      //FIX PLS!
 		this.setState({ search }); }
 
 	get thematics () {
@@ -640,7 +660,7 @@ class Transport extends React.Component {
 											//RETURN!!!!!!!!!!!!!!
 											//RETURN!!!!!!!!!!!!!!
 		return (
-			<View id={this.props.id} activePanel={this.state.activePanel} modal={modal}>
+			<View id={this.props.id} activePanel={this.state.activePanel} modal={modal} popout={this.state.popout}>
 				<Panel id='default'>
 					<div>
 						<PanelHeader
