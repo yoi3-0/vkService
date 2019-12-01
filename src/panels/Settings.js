@@ -7,7 +7,6 @@ import connect from "@vkontakte/vk-connect";
 
 import '../App.css';
 import Icon24Users from '@vkontakte/icons/dist/24/users';
-import Icon24Favorite from '@vkontakte/icons/dist/24/favorite';
 import Icon24Repost from '@vkontakte/icons/dist/24/repost';
 
 
@@ -20,7 +19,7 @@ const Settings = props => (
             <Group title='О нас'>
                 <List>
                     <CellButton before={<Icon24Users />} component="a" href="https://vk.com/club187561580">  Открыть сообщество </CellButton>
-                    <CellButton before={<Icon24Favorite />} onClick={ () => connect.send("VKWebAppAddToFavorites", {})}> Добавить в избранное</CellButton>
+                    {props.CellBut}
                     <CellButton before={<Icon24Repost />} onClick={ () => connect.send("VKWebAppShare", {"link": "https://vk.com/app7157578"})}> Рассказать друзьям</CellButton>
                 </List>
             </Group>

@@ -3,11 +3,12 @@ import connect from '@vkontakte/vk-connect';
 import '@vkontakte/vkui/dist/vkui.css';
 import './App.css';
 
-import {Root, Epic, Tabbar, TabbarItem, Alert} from '@vkontakte/vkui';
+import {Root, Epic, Tabbar, TabbarItem, Alert, CellButton, List} from '@vkontakte/vkui';
 
 import Icon28InfoOutline from '@vkontakte/icons/dist/28/info_outline';
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
 import Icon28Place from '@vkontakte/icons/dist/28/place';
+import Icon24Favorite from '@vkontakte/icons/dist/24/favorite';
 
 import Transport from './panels/Transport';
 import Parks from './panels/Parks';
@@ -28,6 +29,7 @@ class App extends React.Component {
 			urlObj: this.objToQueryString(this.getUrlVars()),
 			user: null,
 			schedule: [],
+			CellBut:   <CellButton before={<Icon24Favorite />} onClick={ () => connect.send("VKWebAppAddToFavorites", {})}> Добавить в избранное</CellButton>,
 			translations: {
 				parks: 'Парки',
 				routes: 'Маршруты',
@@ -86,7 +88,7 @@ class App extends React.Component {
 					 break;
 				case 'VKWebAppUpdateConfig':
 					 break;
-				case 'VKWebAppAddToFavoritesResult': console.log(event.detail.data.result); this.openAlert();
+				case 'VKWebAppAddToFavoritesResult': console.log(event.detail.data.result); this.setState({CellBut:<CellButton disabled before={<Icon24Favorite />} >Сервис уже в списке избранных</CellButton>});
 					break;
 				default: console.log(event.detail.type);
 					break;
@@ -146,7 +148,7 @@ class App extends React.Component {
 					}>
 					<Transport id='transport' go={ this.go } />
 					<Parks id='parks' go={ this.go } />
-					<Settings id='settings' popout={this.state.popout} schedule={ this.state.schedule } go={ this.go } />
+					<Settings id='settings' popout={this.state.popout} schedule={ this.state.schedule } CellBut={this.state.CellBut} go={ this.go } />
 				</Epic>
 			</Root>
 		);
