@@ -87,13 +87,15 @@ class App extends React.Component {
 				case 'VKWebAppGetUserInfoResult':
 					 break;
 				case 'VKWebAppUpdateConfig':
-					 break;
+					let schemeAttribute = document.createAttribute('scheme');
+					schemeAttribute.value = (event.detail.data.scheme ? event.detail.data.scheme : 'client_light');
+					document.body.attributes.setNamedItem(schemeAttribute); break;
 				case 'VKWebAppAddToFavoritesResult': console.log(event.detail.data.result); this.setState({CellBut:<CellButton disabled before={<Icon24Favorite />} >Сервис уже в списке избранных</CellButton>});
 					break;
 				default: console.log(event.detail.type);
 					break;
 			}
-			console.log('new message', event.detail.type, event.detail.data);
+			console.log('new message', event.detail.type, event.detail.data.scheme);
 
 		});
 
