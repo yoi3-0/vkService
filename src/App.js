@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import connect from '@vkontakte/vk-connect';
 import '@vkontakte/vkui/dist/vkui.css';
 import './App.css';
 
-import {Root, Epic, Tabbar, TabbarItem, Alert, CellButton, List} from '@vkontakte/vkui';
+import {Root, Epic, Tabbar, TabbarItem, Alert, CellButton} from '@vkontakte/vkui';
 
 import Icon28InfoOutline from '@vkontakte/icons/dist/28/info_outline';
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';

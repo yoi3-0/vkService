@@ -1,5 +1,5 @@
 import React from 'react';
-import {Footer,  Div, Group, View, Button, List, CellButton} from '@vkontakte/vkui';
+import {Footer, Group, View,  List, CellButton} from '@vkontakte/vkui';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import connect from "@vkontakte/vk-connect";

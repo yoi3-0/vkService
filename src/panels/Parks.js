@@ -130,7 +130,7 @@ class Parks extends React.Component {
                         id='8'
                         className='mapview'
                         title='8'
-                        src="https://yandex.ru/map-widget/v1/?um=constructor%3Abf470f0676a1546b4d71ef70b683b1589c1635ac5aa469e2bc1dc14ea72f197a&amp;source=constructor"
+						src="https://yandex.ru/map-widget/v1/?um=constructor%3Abf470f0676a1546b4d71ef70b683b1589c1635ac5aa469e2bc1dc14ea72f197a&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
             }); break;
             case '10': this.setState({activeIframe:
@@ -138,7 +138,7 @@ class Parks extends React.Component {
                         id='10'
                         className='mapview'
                         title='10'
-                        src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae26e9b951e420eb6cc78da7c2fd6eec8ad21b478d641a6824e3295c2f777d25d&amp;source=constructor"
+						src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae26e9b951e420eb6cc78da7c2fd6eec8ad21b478d641a6824e3295c2f777d25d&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
             }); break;
             case '11': this.setState({activeIframe:
@@ -146,7 +146,7 @@ class Parks extends React.Component {
                         id='11'
                         className='mapview'
                         title='11'
-                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A187db803f08a62fd862413419dbb58d995622b16e9bf1ab0394369ade5c37459&amp;source=constructor"
+						src="https://yandex.ru/map-widget/v1/?um=constructor%3A187db803f08a62fd862413419dbb58d995622b16e9bf1ab0394369ade5c37459&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
             }); break;
             default: this.setState({activeIframe: 'Карта не найдена! Сообщите об ошибке, пожалуйста.'
