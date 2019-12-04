@@ -95,7 +95,7 @@ class App extends React.Component {
 				default: console.log(event.detail.type);
 					break;
 			}
-			console.log('new message', event.detail.type, event.detail.data.scheme);
+			console.log('new message', event.detail.type);
 
 		});
 

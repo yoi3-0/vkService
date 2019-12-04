@@ -1,7 +1,7 @@
 import React from 'react';
 import {
 	View, Panel, PanelHeader, ModalRoot, ModalPage, ModalPageHeader, Group,Alert, Placeholder, Snackbar, PopoutWrapper,
-	HeaderButton, IOS, ANDROID, platform, InfoRow, Button, Cell, Avatar, Search, List, Div
+	HeaderButton, IOS, ANDROID, platform, Separator ,InfoRow, Button, Cell, Avatar, Search, List, Div
 } from '@vkontakte/vkui';
 import connect from '@vkontakte/vk-connect';
 
@@ -591,7 +591,8 @@ class Transport extends React.Component {
 									Нет информации о пути следования
 								</InfoRow>
 							}
-							{this.infobase.length > 0?
+                            <Separator style={{ margin: '5px 0' }} />
+                            {this.infobase.length > 0?
 								<List>
 									{this.infobase.map(infobase =>
 										<Cell key={infobase.id} >
