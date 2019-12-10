@@ -8,10 +8,12 @@ import {Root, Epic, Tabbar, TabbarItem, Alert, CellButton} from '@vkontakte/vkui
 import Icon28InfoOutline from '@vkontakte/icons/dist/28/info_outline';
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
 import Icon28Place from '@vkontakte/icons/dist/28/place';
+import Icon28HomeOutline from '@vkontakte/icons/dist/28/home_outline';
 import Icon24Favorite from '@vkontakte/icons/dist/24/favorite';
 
 import Transport from './panels/Transport';
 import Parks from './panels/Parks';
+import Map from './panels/Map';
 import Settings from './panels/Settings';
 
 
@@ -36,6 +38,7 @@ class App extends React.Component {
 				info: 'Информация',
 				need_accept_notifications: 'Надо разрешить уведомления',
 				accept_notifications: 'Розрешить',
+				map: 'Карта',
 
 			}
 		};
@@ -135,6 +138,15 @@ class App extends React.Component {
 								data-story='parks'
 								text= {this.state.translations.parks}
 							>
+								<Icon28HomeOutline/>
+							</TabbarItem>
+
+							<TabbarItem
+								onClick={ this.onStoryChange }
+								selected={ this.state.activeStory === 'map' }
+								data-story='map'
+								text= {this.state.translations.map}
+							>
 								<Icon28Place/>
 							</TabbarItem>
 
@@ -150,6 +162,7 @@ class App extends React.Component {
 					}>
 					<Transport id='transport' go={ this.go } />
 					<Parks id='parks' go={ this.go } />
+					<Map id='map' go={ this.go } />
 					<Settings id='settings' popout={this.state.popout} schedule={ this.state.schedule } CellBut={this.state.CellBut} go={ this.go } />
 				</Epic>
 			</Root>
