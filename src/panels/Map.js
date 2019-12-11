@@ -2,6 +2,7 @@ import React from 'react';
 import {
 	View,
 	Panel,
+	ScreenSpinner,
 	PanelHeader,
 } from '@vkontakte/vkui';
 import '../App.css';
@@ -14,6 +15,8 @@ class Map extends React.Component {
 			activePanel:'default',
 			activePark: null,
             activeIframe: <iframe
+				onload={console.log('ya!')}
+				readyState={console.log('yes!')}
 				id='theonlyone'
 				title='theonlyone'
 				className='mapview'
@@ -24,13 +27,12 @@ class Map extends React.Component {
 
 	render() {
 		return (
-
-			<View id={this.props.id} activePanel={this.state.activePanel}>
+			<View id={this.props.id} popout={this.state.popout} activePanel={this.state.activePanel}>
 				<Panel id='default'>
 					<PanelHeader>
 						Карта маршрутов
 					</PanelHeader>
-					{this.state.activeIframe}
+					{ this.state.activeIframe.onload? alert('no'):  this.state.activeIframe}
 				</Panel>
 			</View>
 		)
