@@ -216,7 +216,6 @@ class Parks extends React.Component {
 					<Group className='park_info'>
 						<Cell
 							size="l"
-							asideContent={<Icon24MoreVertical onClick={this.TramPark1}/>}
 						>
 							Трамвайный парк №1 <hr/>
 							<InfoRow title='Расположение'>
@@ -234,6 +233,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								Октябрь 1907 года
 							</InfoRow>
+							<Button size="xl" level="secondary" onClick={this.TramPark1}>Дополнительная информация</Button>
 						</Cell
 >
 					</Group>
@@ -241,7 +241,6 @@ class Parks extends React.Component {
 						<Cell
 
 							size="l"
-							asideContent={<Icon24MoreVertical onClick={this.TramPark3}/>}
 						>
 							Трамвайный парк №3 <hr/>
 							<InfoRow title='Расположение'>
@@ -259,13 +258,13 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1876 год
 							</InfoRow>
+							<Button size="xl" level="secondary" onClick={this.TramPark3}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
 						<Cell
 
 							size="l"
-							asideContent={<Icon24MoreVertical onClick={this.TramPark2}/>}
 						>
 							Трамвайный парк № 3, площадка № 2 <hr/>
 							<InfoRow title='Расположение'>
@@ -283,13 +282,13 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1907 год
 							</InfoRow>
+							<Button size="xl" level="secondary" onClick={this.TramPark2}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
 						<Cell
 
 							size="l"
-							asideContent={<Icon24MoreVertical onClick={this.TramPark5}/>}
 						>
 							Трамвайный парк №5 <hr/>
 							<InfoRow title='Расположение'>
@@ -307,13 +306,13 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1917 год
 							</InfoRow>
+							<Button size="xl" level="secondary" onClick={this.TramPark5}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
 						<Cell
 
 							size="l"
-							asideContent={<Icon24MoreVertical onClick={this.TramPark7}/>}
 						>
 							Трамвайный парк №7 <hr/>
 							<InfoRow title='Расположение'>
@@ -331,13 +330,13 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1931 год
 							</InfoRow>
+							<Button size="xl" level="secondary" onClick={this.TramPark7}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
 						<Cell
 
 							size="l"
-							asideContent={<Icon24MoreVertical onClick={this.TramPark8}/>}
 						>
 							Трамвайный парк №8 <hr/>
 							<InfoRow title='Расположение'>
@@ -355,13 +354,13 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1916 год
 							</InfoRow>
+							<Button size="xl" level="secondary" onClick={this.TramPark8}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
 						<Cell
 
 							size="l"
-							asideContent={<Icon24MoreVertical onClick={this.TramPark0}/>}
 						>
 							Совмещённый трамвайно-троллейбусный парк <hr/>
 							<InfoRow title='Расположение'>
@@ -379,13 +378,13 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1981 год
 							</InfoRow>
+							<Button size="xl" level="secondary" onClick={this.TramPark0}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
 						<Cell
 
 							size="l"
-							asideContent={<Icon24MoreVertical onClick={this.TramPark11}/>}
 						>
 							Трамвайныйное депо ООО«ТКК»<hr/>
 							<InfoRow title='Расположение'>
@@ -403,6 +402,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								Сентябрь 2019
 							</InfoRow>
+							<Button size="xl" level="secondary" onClick={this.TramPark11}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 				</Panel>
