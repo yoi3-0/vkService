@@ -277,7 +277,7 @@ class Parks extends React.Component {
 								T1, 6, 40
 							</InfoRow>
 							<InfoRow title='Подвижной состав'>
-								71-623-03, ЛВС-86К, ЛМ-68М3 <br/> 71-134А
+								71-623-03, ЛВС-86К, ЛМ-68М3, <br/> 71-134А
 							</InfoRow>
 							<InfoRow title='Дата открытия'>
 								1907 год
@@ -428,7 +428,7 @@ class Parks extends React.Component {
                             {osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
                         </HeaderButton>}
                     >
-                        {this.state.activePark<10? 'Парк №'+this.state.activePark: this.state.activePark==10? 'СТТП': 'Трамвайное депо ООО"ТТК"' } на карте
+                        {this.state.activePark<10? 'Парк №'+this.state.activePark: this.state.activePark==10? 'СТТП': 'Трамвайное депо ТТК' } на карте
                     </PanelHeader>
                     <div className='mapview'>
                         {this.state.activeIframe}
