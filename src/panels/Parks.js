@@ -244,7 +244,7 @@ class Parks extends React.Component {
 						>
 							Трамвайный парк №3 <hr/>
 							<InfoRow title='Расположение'>
-								Большая Посадская улица, 24/2.
+								Большая Посадская улица, 24/2
 							</InfoRow>
 							<InfoRow title='Телефон'>
 								8 (812) 232-36-16
@@ -268,7 +268,7 @@ class Parks extends React.Component {
 						>
 							Трамвайный парк № 3, площадка № 2 <hr/>
 							<InfoRow title='Расположение'>
-								Средний проспект В.О., 77/79.
+								Средний проспект В.О., 77/79
 							</InfoRow>
 							<InfoRow title='Телефон'>
 								8 (812) 321-54-05

@@ -556,11 +556,16 @@ class Transport extends React.Component {
 			modalHistory
 		});
 	};
-	onChange (search) { if (search.length>15){this.openAlert()}  else      //FIX PLS!
-		this.setState({ search }); }
+	onChange (search) { if (search.length>15){this.openAlert()}
+	else
+		{
+		//	if (search[search.length-1]===' ')   search=search.trimRight()+' ';
+			this.setState({ search });
+		}
+	}
 
 	get thematics () {
-		const search = this.state.search.toLowerCase();
+		let search = this.state.search.toLowerCase();
 		return routes.filter(({name}) => name.toLowerCase().indexOf(search) > -1);
 	}
 
