@@ -639,7 +639,7 @@ class Transport extends React.Component {
 					header={
 						<ModalPageHeader
 							left={IS_PLATFORM_ANDROID && <HeaderButton onClick={this.modalBack}><Icon24Cancel /></HeaderButton>}
-							right={<HeaderButton onClick={this.modalBack}>{IS_PLATFORM_IOS ? 'Готово' : <Icon24Done />}</HeaderButton>}
+							right={IS_PLATFORM_IOS && <HeaderButton onClick={this.modalBack}>Готово</HeaderButton>}
 						>
 							{this.infobase.map(infobase =>
 							<div className='container' key={infobase.id}>
@@ -733,7 +733,7 @@ class Transport extends React.Component {
 					header={
 						<ModalPageHeader
 							left={IS_PLATFORM_ANDROID && <HeaderButton onClick={this.modalBack}><Icon24Cancel /></HeaderButton>}
-							right={<HeaderButton onClick={this.modalBack}>{IS_PLATFORM_IOS ? 'Готово' : <Icon24Done />}</HeaderButton>}
+							right={IS_PLATFORM_IOS && <HeaderButton onClick={this.modalBack}>Готово</HeaderButton>}
 						>
 							<Div className='ModalText'>Сообщить о проблеме</Div>
 						</ModalPageHeader>
@@ -742,7 +742,7 @@ class Transport extends React.Component {
 					<Div>
 					<Group>
 						<Placeholder>Чтобы сообщить об ошибке, напишите нам в личные сообщения </Placeholder>
-						<Button size="l"  className='BugBut'  component="a" href="https://vk.me/club187561580">Перейти в диалог</Button>
+						<Button size="l"  className='BugBut'  stretched component="a" href="https://vk.me/club187561580">Перейти в диалог</Button>
 					</Group>
 					</Div>
 				</ModalPage>
