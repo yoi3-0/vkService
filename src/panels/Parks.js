@@ -233,7 +233,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								Октябрь 1907 года
 							</InfoRow>
-							<Button size="xl" level="secondary" onClick={this.TramPark1}>Дополнительная информация</Button>
+							<Button size="xl" level="secondary" className="MoreBut" onClick={this.TramPark1}>Дополнительная информация</Button>
 						</Cell
 >
 					</Group>
@@ -258,7 +258,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1876 год
 							</InfoRow>
-							<Button size="xl" level="secondary" onClick={this.TramPark3}>Дополнительная информация</Button>
+							<Button size="xl" level="secondary" className="MoreBut" onClick={this.TramPark3}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
@@ -282,7 +282,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1907 год
 							</InfoRow>
-							<Button size="xl" level="secondary" onClick={this.TramPark2}>Дополнительная информация</Button>
+							<Button size="xl" level="secondary" className="MoreBut" onClick={this.TramPark2}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
@@ -306,7 +306,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1917 год
 							</InfoRow>
-							<Button size="xl" level="secondary" onClick={this.TramPark5}>Дополнительная информация</Button>
+							<Button size="xl" level="secondary" className="MoreBut" onClick={this.TramPark5}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
@@ -330,7 +330,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1931 год
 							</InfoRow>
-							<Button size="xl" level="secondary" onClick={this.TramPark7}>Дополнительная информация</Button>
+							<Button size="xl" level="secondary" className="MoreBut" onClick={this.TramPark7}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
@@ -354,7 +354,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1916 год
 							</InfoRow>
-							<Button size="xl" level="secondary" onClick={this.TramPark8}>Дополнительная информация</Button>
+							<Button size="xl" level="secondary"  className="MoreBut" onClick={this.TramPark8}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
@@ -378,7 +378,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								1981 год
 							</InfoRow>
-							<Button size="xl" level="secondary" onClick={this.TramPark0}>Дополнительная информация</Button>
+							<Button size="xl" level="secondary" className="MoreBut" onClick={this.TramPark0}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 					<Group className='park_info'>
@@ -402,7 +402,7 @@ class Parks extends React.Component {
 							<InfoRow title='Дата открытия'>
 								Сентябрь 2019
 							</InfoRow>
-							<Button size="xl" level="secondary" onClick={this.TramPark11}>Дополнительная информация</Button>
+							<Button size="xl" level="secondary" className="MoreBut" onClick={this.TramPark11}>Дополнительная информация</Button>
 						</Cell>
 					</Group>
 				</Panel>

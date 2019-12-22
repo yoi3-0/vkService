@@ -14,7 +14,6 @@ class Map extends React.Component {
 			popout: <ScreenSpinner/>,
 			activePanel:'default',
 			activePark: null,
-			loading: true,
             activeIframe: null,
 		};
 		this.HideSpinner = this.HideSpinner.bind(this);
