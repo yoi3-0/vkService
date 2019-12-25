@@ -616,8 +616,7 @@ class Transport extends React.Component {
 	}
 
 	get thematics () {
-		let search = this.state.search.toLowerCase();
-		search=search.trimLeft();
+		let search = this.state.search.toLowerCase().trimLeft();
 		return routes.filter(({name}) => name.toLowerCase().indexOf(search) > -1);
 	}
 
@@ -689,7 +688,7 @@ class Transport extends React.Component {
 									Нет информации о пути следования
 								</InfoRow>
 							}
-                            <Separator style={{ margin: '5px 0' }} />
+                            <Separator />
                             {this.infobase.length > 0?
 								<List>
 									{this.infobase.map(infobase =>
@@ -750,12 +749,7 @@ class Transport extends React.Component {
 			</ModalRoot>
 		);
 
-
-											//RETURN!!!!!!!!!!!!!!
-											//RETURN!!!!!!!!!!!!!!
-											//RETURN!!!!!!!!!!!!!!
-											//RETURN!!!!!!!!!!!!!!
-											//RETURN!!!!!!!!!!!!!!
+											//return
 		return (
 			<View id={this.props.id} activePanel={this.state.activePanel} modal={modal} popout={this.state.popout}>
 				<Panel id='default'>
