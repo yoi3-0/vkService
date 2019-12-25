@@ -199,7 +199,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='-2'
 					title='-2'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A4ae9074308f16ab69d665940e713eeba3ee49c32e97e9f0ebb33def3e219830a&amp;source=constructor"
 					width="364" height="279" frameBorder="0"/>
@@ -208,7 +208,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='-1'
 					title='-1'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A63846009f7e77a55a9e219f609f3832491a0417e2b54b9819ceb00b42b0220d0&amp;source=constructor"
 					width="396" height="290" frameBorder="0"/>
@@ -217,7 +217,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='3'
 					title='3'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A7f91a9199ab9f441e076e1c00f06506acd1958131fae5c035865d631ed1bcc04&amp;source=constructor"
 					width="504" height="519" frameBorder="0"/>
@@ -226,7 +226,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='6'
 					title='6'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Afc7f6f3aa10d404b524e231bb874cd992e95a06cd03f73d289fd0722cf3a1425&amp;source=constructor"
 					width="770" height="376" frameBorder="0"/>
@@ -235,7 +235,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='7'
 					title='7'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A32e7eec6a3f33ae4a5d004c76fb816b4dce0bf5eea5fd7645d274a97ea6cbcdd&amp;source=constructor"
 					width="468" height="408" frameBorder="0"/>
@@ -244,7 +244,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					if='8'
 					title='8'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad41bafc0fbdd89fa0e7b11c84b74359b332ce7b8f40d55214e1262cb47d84169&amp;source=constructor"
 					width="658" height="374" frameBorder="0"/>
@@ -253,7 +253,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='9'
 					title='9'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A929466ef9c2d8228afde0d6133fcdc657d7e9c1d2cbca5506f7b7b58667872b1&amp;source=constructor"
 					width="480" height="400" frameBorder="0"/>
@@ -262,7 +262,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='10'
 					title='10'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A683b4a25b6424b46b06f15b849764f0fcc88ee47452527e1c34fd7e7cf0b4e8b&amp;source=constructor"
 					width="568" height="541" frameBorder="0"/>
@@ -271,7 +271,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					if='16'
 					title='16'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A4bd146a667ac3738c36019924cef94b80c43bec49c06b32a1525bda352bab5a4&amp;source=constructor"
 					width="637" height="382" frameBorder="0"/>
@@ -280,7 +280,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					if='18'
 					title='18'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A6ae1029660ec803d4016cb980ba9d08d896df5c61241eb70c2fa7e29310889e9&amp;source=constructor"
 					width="421" height="435" frameBorder="0"/>
@@ -289,7 +289,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='19'
 					title='19'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A3b17109f41809759cf80f7422d9cb581944f121659d29990628cb18111148b6d&amp;source=constructor"
 					width="901" height="341" frameBorder="0"/>
@@ -298,7 +298,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='20'
 					title='20'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A6c552aaf9b8e635b2c7c75167474166bdf0dabf6274aaf09046cec5946fc5b63&amp;source=constructor"
 					width="527" height="569" frameBorder="0"/>
@@ -307,7 +307,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='21'
 					title='21'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A479e9bc43fd1fd0d460ea954e1246b39d7cefae1e5d16b7ff8c1c4def16448a8&amp;source=constructor"
 					width="406" height="512" frameBorder="0"/>
@@ -317,7 +317,7 @@ class Transport extends React.Component {
 					<iframe
 					id='23'
 					title='23'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Aeb574e1854c4f8850b5ccdade5e1e2cc5e78f54b91fae4a9943ab15e0af8bf17&amp;source=constructor"
 					width="510" height="416" frameBorder="0"/>
@@ -326,7 +326,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					if='24'
 					title='24'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Af9c0774caae457282d004d46d8c9d4a7ea20a9d39557f053bed475a1229585ef&amp;source=constructor"
 					width="340" height="339" frameBorder="0"/>
@@ -335,7 +335,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='25'
 					title='25'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa445a311322353b6315e0409c74ac4568b105e362e5ff6bf268fa30acc72497f&amp;source=constructor"
 					width="365" height="340" frameBorder="0"/>
@@ -344,7 +344,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					if='27'
 					title='27'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A000016f800b2f19645d821ad900aa0443b491e6bc23270259b1b67ea5e9d2d29&amp;source=constructor"
 					width="320" height="322" frameBorder="0"/>
@@ -353,7 +353,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='29'
 					title='29'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A90206a751e8dde7390eba3e30ce5a6757c25b7b13a85286807539d3564483254&amp;source=constructor"
 					width="425" height="477" frameBorder="0"/>
@@ -362,7 +362,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					if='36'
 					title='36'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A086c352ba47b5cccb73d7ddbc63be8761825bd92843e04bcd3381d1d1d828573&amp;source=constructor"
 					width="691" height="357" frameBorder="0"/>
@@ -371,7 +371,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='38'
 					title='38'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Abcfb23aa46ef64e3d258c61d3889b3b729f24edb6fc54db7f09482ec0a5f8c01&amp;source=constructor"
 					width="371" height="320" frameBorder="0"/>
@@ -380,7 +380,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					if='39'
 					title='39'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A3262833b49476a1f2ea90588000b41ff634a145be52b0d41bb406af99e654eca&amp;source=constructor"
 					width="383" height="501" frameBorder="0"/>
@@ -389,7 +389,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='40'
 					title='40'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A174983bbfb82adaa4616b80cd0559058fe872806ffb7ae86db42afb77a8645c2&amp;source=constructor"
 					width="523" height="523" frameBorder="0"/>
@@ -398,7 +398,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='41'
 					title='41'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Aed6d7ee2421eb71cde0a81015b3e80e9d1fa611e974ea262ec53402838f9141b&amp;source=constructor"
 					width="481" height="553" frameBorder="0"/>
@@ -407,7 +407,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					if='43'
 					title='43'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Aebf58b6761b0adeb3352273f729efb30c41300e525e42a885c54d7fff8adcea4&amp;source=constructor"
 					width="410" height="410" frameBorder="0"/>
@@ -416,7 +416,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='45'
 					title='45'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A58fd35639f1f307d775409e397f7ec34f2d4a57fa6179af755a12138423ad484&amp;source=constructor"
 					width="350" height="394" frameBorder="0"/>
@@ -425,7 +425,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					if='47'
 					title='47'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Ace56d304ae55a970fb85bcb8f8f3d0511873bfc72f8f838f5ade082da25d44bd&amp;source=constructor"
 					width="500" height="400" frameBorder="0"/>
@@ -434,7 +434,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='49'
 					title='49'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae304a3f380bc285f30523a6da3e7c2e47b1caaf13264abf85fb7ec0d97e59ff3&amp;source=constructor"
 					width="527" height="329" frameBorder="0"/>
@@ -443,7 +443,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='49'
 					title='49'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A9788b15f77f05569caa6fbed9882d187637f3286821d9a40cdbe8e0f92c75e87&amp;source=constructor"
 					width="451" height="618" frameBorder="0"/>
@@ -452,7 +452,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='51'
 					title='51'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A76423a4fb4ec85102a4bb38d29336304f726e84ea7c8c90751d84b33b69ea13e&amp;source=constructor"
 					width="320" height="448" frameBorder="0"/>
@@ -461,7 +461,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='52'
 					title='52'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A09efbf0f49e87a0b32e948120cfdfb5371aced9d84d444d5a0275b483cd7c359&amp;source=constructor"
 					width="480" height="392" frameBorder="0"/>
@@ -470,7 +470,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='55'
 					title='55'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A3f4072e4cd2d51aa408fcdb87bccae573beb2b06819811961a980827a3f0650a&amp;source=constructor"
 					width="499" height="405" frameBorder="0"/>
@@ -479,7 +479,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='56'
 					title='56'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A97aa4967e8dea2783108c09bb90530b22d910ac29e6ddd9aacfa1a47ad528e71&amp;source=constructor"
 					width="425" height="335" frameBorder="0"/>
@@ -488,7 +488,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='57'
 					title='57'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A61ac44914eb559cf4a5ce5a9bc43087c11521035a2859372f5385c488d5e6bdf&amp;source=constructor"
 					width="474" height="319" frameBorder="0"/>
@@ -497,7 +497,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='58'
 					title='58'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab237d950809e63145544eaee765eed75107dde775b8314485c01b1ac63fb83ec&amp;source=constructor"
 					width="551" height="398" frameBorder="0"/>
@@ -506,7 +506,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='59'
 					title='59'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A13a65ba7e3f815dc316acc26302dccf0427e5c3d61ff5d5275f101badfbaeb8b&amp;source=constructor"
 					width="320" height="274" frameBorder="0"/>
@@ -515,7 +515,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='60'
 					title='60'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A03f5d3847937ec496ab8f0001858a75e97f19effca82dc50b9e22d166eb93a7e&amp;source=constructor"
 					width="448" height="290" frameBorder="0"/>
@@ -524,7 +524,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='61'
 					title='61'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A159c280897e489c8f205bcdad76898a73781c13f15c7479c0d69cf6f3e53a441&amp;source=constructor"
 					width="367" height="503" frameBorder="0"/>
@@ -533,7 +533,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='62'
 					title='62'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A28cbc9163e4cb1ce6e2549af13e51295a12ad252a4ae9a37aeca7553ef981447&amp;source=constructor"
 					width="604" height="335" frameBorder="0"/>
@@ -542,7 +542,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='63'
 					title='63'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A42b224d258928bcca43aeffc93b19aa4762c95cb44c12dd787f06460d2fc44f9&amp;source=constructor"
 					width="399" height="347" frameBorder="0"/>
@@ -551,7 +551,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='64'
 					title='64'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A0a3338bb4700e44a0ca428acf696d0ebb0a091a0be512bfc24a15c224c60872e&amp;source=constructor"
 					width="395" height="313" frameBorder="0"/>
@@ -560,7 +560,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='65'
 					title='65'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A4c09fcc48d6a5d0d1fe9d61773167ea0273ea6b6310e74fc7e649ce31d77c7fd&amp;source=constructor"
 					width="387" height="289" frameBorder="0"/>
@@ -569,7 +569,7 @@ class Transport extends React.Component {
 				activeIframe: <iframe
 					id='100'
 					title='100'
-					className='mapview'
+					className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 					onLoad={this.HideSpinner}
 					src="https://yandex.ru/map-widget/v1/?um=constructor%3A8d0ec041c05db62e0fb533a75aea684900d2836b1355e0e1b9f6c39342f9feb3&amp;source=constructor"
 					width="411" height="345" frameBorder="0"/>
@@ -617,6 +617,7 @@ class Transport extends React.Component {
 
 	get thematics () {
 		let search = this.state.search.toLowerCase();
+		search=search.trimLeft();
 		return routes.filter(({name}) => name.toLowerCase().indexOf(search) > -1);
 	}
 

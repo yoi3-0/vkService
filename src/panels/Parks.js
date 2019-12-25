@@ -31,7 +31,7 @@ const parkinfo = [
             ' В  1997 году в Петербурге прекращены грузовые трамвайные перевозки, и парк №1 стал только пассажирским.'},
 	{id: '2', name: 'Василеостровский трамвайный парк', info: 'Из стен этого парка 29 сентября 1907 года вышли вагоны на первые регулярные рейсы. ' +
 			'В 1926 году парку было присвоено имя Александра Леонова, 15 апреля 1942 года после приостановления трамвайного движения во время блокады Ленинграда был одним из парков, возобновивших выпуск трамваев на линии.' +
-			' В 1990-е годы получил №2. В 2003 году трамвайный парк №2 был объединён с трамвайным парком №3 имени К. Н. Блохина и формально функционировал как площадка №2 трамвайного парка № 3.\n' +
+			' В 1990-е годы получил №2. В 2003 году трамвайный парк №2 был объединён с трамвайным парком №3 имени К. Н. Блохина и формально функционировал как площадка №2 трамвайного парка №3.\n' +
 			' В 2003—2005 годах из-за ремонта Среднего проспекта был изолирован от основной трамвайной сети и обслуживал единственный маршрут.\n' +
 			' 15 января 2007 года парк был официально закрыт. Тем не менее, он продолжал использоваться для оборота подвижного состава, периодически обслуживал отрезанные из-за ремонтов на Петроградском острове маршруты Васильевского острова. В зданиях депо расположен Музей электрического транспорта Санкт-Петербурга ' +
 			'В 2014 году Ансамбль трампарка №2  стал  памятником культурного наследия регионального значения. '+
@@ -40,7 +40,7 @@ const parkinfo = [
             ' с 1909 года — «Петербургский трамвайный парк».  На трамвае  20-го или 21-го маршрута В.И. Ленин ехал от 1-го Муринского проспекта до Боткинской улицы, когда пробирался с последней конспиративной квартиры в штаб революции — Смольный. Поехал бы он и дальше, через Литейный мост, но было поздно — вагон шёл в парк.' +
 			' В 1922 году название «Петербургский» упразднено, вместо него парку присвоен номер «3» и имя К. Н. Блохина.' +
             ' В 2003 году трамвайные парки №2 и №3 были объединены под номером «3», с этого момента трамвайный парк №3 стал первой площадкой выпуска вагонов, а территория парка №2 — второй площадкой. ' +
-            '15 января 2007 года площадка №2 была закрыта, начиная с этого времени и до возобновления работы у трампарка № 3 вновь осталась только одна площадка. ' +
+            '15 января 2007 года площадка №2 была закрыта, начиная с этого времени и до возобновления работы у трампарка №3 вновь осталась только одна площадка. ' +
             'Со 2 июня 2016 года вторая площадка возобновила работу.'},
 	{id: '5', name: 'Трамвайный парк №5 (Ланской; имени Калинина)', info: 'Открыт в сентябре 1917 года под именем «Ланской трамвайный парк». ' +
 			'В 1922 году название «Ланской» упразднено, вместо него парку присвоен №5 и имя М. И. Калинина. После распада СССР у парка убрали имя Калинина, оставив номер и восстановив название «Ланской». ' +
@@ -89,7 +89,7 @@ class Parks extends React.Component {
             case '1': this.setState({activeIframe:
                     <iframe
                         id='1'
-                        className='mapview'
+                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='1'
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3Aab5dbe04d64cf3da0d0cf0292a13ed265aa650da4c64c674acc4a34d61914260&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -97,7 +97,7 @@ class Parks extends React.Component {
             case '2': this.setState({activeIframe:
                     <iframe
                         id='3'
-                        className='mapview'
+                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='3'
                         src = "https://yandex.ru/map-widget/v1/?um=constructor%3A9c78e8072ae3800b96805da604be955108dad0b5cd412b4f9bf8b310ae1d52e4&amp;source=constructor"
                         width = "500" height = "400" frameBorder = "0" />
@@ -105,7 +105,7 @@ class Parks extends React.Component {
             case '3': this.setState({activeIframe:
                     <iframe
                         id='3'
-                        className='mapview'
+                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='3'
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3A5e086c17843b382deca48fee8630ecdfddb71ad2b577ea4f9a3512fdca019622&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -113,7 +113,7 @@ class Parks extends React.Component {
             case '5': this.setState({activeIframe:
                     <iframe
                         id='5'
-                        className='mapview'
+                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='5'
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3Aab96bd2dc0f0f777c8e3de8e3c1fa2a8ef41579cecf766be0c2c139020a48ea9&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -121,7 +121,7 @@ class Parks extends React.Component {
             case '7': this.setState({activeIframe:
                     <iframe
                         id='7'
-                        className='mapview'
+                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='7'
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3A6f2eae47d8264de236fdf9ee206a667d4ed9acd4293b1eaf7090b9e0d8bca983&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -129,7 +129,7 @@ class Parks extends React.Component {
             case '8': this.setState({activeIframe:
                     <iframe
                         id='8'
-                        className='mapview'
+                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='8'
 						src="https://yandex.ru/map-widget/v1/?um=constructor%3Abf470f0676a1546b4d71ef70b683b1589c1635ac5aa469e2bc1dc14ea72f197a&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -137,7 +137,7 @@ class Parks extends React.Component {
             case '10': this.setState({activeIframe:
                     <iframe
                         id='10'
-                        className='mapview'
+                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='10'
 						src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae26e9b951e420eb6cc78da7c2fd6eec8ad21b478d641a6824e3295c2f777d25d&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -145,7 +145,7 @@ class Parks extends React.Component {
             case '11': this.setState({activeIframe:
                     <iframe
                         id='11'
-                        className='mapview'
+                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='11'
 						src="https://yandex.ru/map-widget/v1/?um=constructor%3A187db803f08a62fd862413419dbb58d995622b16e9bf1ab0394369ade5c37459&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -412,7 +412,7 @@ class Parks extends React.Component {
 							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 						</HeaderButton>}
 					>
-						{this.state.activePark<10? 'История парка №'+this.state.activePark: this.state.activePark==10? 'История СТТП': 'История трамвайного депо ООО"ТТК"' }
+						{this.state.activePark<10? 'История парка №'+this.state.activePark: this.state.activePark==10? 'История СТТП': 'История депо ООО "ТТК"' }
 					</PanelHeader>
                     {this.infobase.map(infobase =>
 					<Group key={infobase.id} >
@@ -428,7 +428,7 @@ class Parks extends React.Component {
                             {osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
                         </HeaderButton>}
                     >
-                        {this.state.activePark<10? 'Парк №'+this.state.activePark: this.state.activePark==10? 'СТТП': 'Трамвайное депо ТТК' } на карте
+                        {this.state.activePark<10? 'Парк №'+this.state.activePark: this.state.activePark==10? 'СТТП': 'Депо ООО "ТТК"' } на карте
                     </PanelHeader>
                     <div className='mapview'>
                         {this.state.activeIframe}

@@ -3,9 +3,11 @@ import {
 	View,
 	Panel,
 	ScreenSpinner,
-	PanelHeader,
+	PanelHeader, platform, IOS,
 } from '@vkontakte/vkui';
 import '../App.css';
+
+const osName=platform();
 
 class Map extends React.Component {
 	constructor(props){
@@ -37,7 +39,7 @@ class Map extends React.Component {
 							onLoad={this.HideSpinner}
 							id='theonlyone'
 							title='theonlyone'
-							className='mapview'
+							className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
 							src = "https://yandex.ru/map-widget/v1/?um=constructor%3A773a061a84c6813492a565182b867299a5a1cd6155fa1afb0d2c78d2c2a79aca&amp;source=constructor"
 							frameBorder = "0"/>
 					</div>
