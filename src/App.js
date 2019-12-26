@@ -25,6 +25,8 @@ class App extends React.Component {
 		this.state = {
 			activeView: 'default',
 			activeStory: 'transport',
+			activeParks: 'default',
+			activeTrans: 'default',
 			popout: null,
 			snackbar: null,
 			urlVars: this.getUrlVars(),
@@ -160,8 +162,8 @@ class App extends React.Component {
 							</TabbarItem>
 						</Tabbar>
 					}>
-					<Transport id='transport' go={ this.go } />
-					<Parks id='parks' go={ this.go } />
+					<Transport id='transport' go={ this.go } activePanel={this.state.activeTrans}/>
+					<Parks id='parks' go={ this.go } activePanel={this.state.activeParks}/>
 					<Map id='map' go={ this.go } />
 					<Settings id='settings' popout={this.state.popout} schedule={ this.state.schedule } CellBut={this.state.CellBut} go={ this.go } />
 				</Epic>

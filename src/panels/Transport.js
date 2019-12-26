@@ -616,7 +616,7 @@ class Transport extends React.Component {
 	}
 
 	get thematics () {
-		let search = this.state.search.toLowerCase().trimLeft();
+		let search = this.state.search.toLowerCase().trim();
 		return routes.filter(({name}) => name.toLowerCase().indexOf(search) > -1);
 	}
 

@@ -64,8 +64,8 @@ class Parks extends React.Component {
 		super(props);
 		this.state = {
 			popout: null,
-			activePanel:'default',
 			activePark: null,
+			activePanel: 'default',
             activeIframe: null,
 		};
 		this.openInfo = this.openInfo.bind(this);
@@ -207,7 +207,6 @@ class Parks extends React.Component {
 
 	render() {
 		return (
-
 			<View id={this.props.id} activePanel={this.state.activePanel} popout={this.state.popout}>
 				<Panel id='default'>
 					<PanelHeader>
