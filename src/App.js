@@ -27,13 +27,14 @@ class App extends React.Component {
 			activeStory: 'transport',
 			activeParks: 'default',
 			activeTrans: 'default',
+			activeRoute: '',
 			popout: null,
 			snackbar: null,
+			CellBut: <CellButton before={<Icon24Favorite />} onClick={ () => connect.send("VKWebAppAddToFavorites", {})}> Добавить в избранное</CellButton>,
 			urlVars: this.getUrlVars(),
 			urlObj: this.objToQueryString(this.getUrlVars()),
 			user: null,
 			schedule: [],
-			CellBut:   <CellButton before={<Icon24Favorite />} onClick={ () => connect.send("VKWebAppAddToFavorites", {})}> Добавить в избранное</CellButton>,
 			translations: {
 				parks: 'Парки',
 				routes: 'Маршруты',
@@ -86,7 +87,7 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.state.urlVars);
+		console.log(this.state.urlVars.vk_is_favorite==='1');
 		connect.subscribe((event) => {
 			switch (event.detail.type) {
 				case 'VKWebAppGetUserInfoResult':
@@ -101,7 +102,7 @@ class App extends React.Component {
 					break;
 			}
 			console.log('new message', event.detail.type);
-
+			//if (this.state.urlVars.vk_is_favorite==='1') this.setState({CellBut:<CellButton disabled before={<Icon24Favorite />} >Сервис уже в списке избранных</CellButton>});
 		});
 
 
@@ -162,7 +163,7 @@ class App extends React.Component {
 							</TabbarItem>
 						</Tabbar>
 					}>
-					<Transport id='transport' go={ this.go } activePanel={this.state.activeTrans}/>
+					<Transport id='transport' go={ this.go } activePanel={this.state.activeTrans} activeRoute={this.state.activeRoute}/>
 					<Parks id='parks' go={ this.go } activePanel={this.state.activeParks}/>
 					<Map id='map' go={ this.go } />
 					<Settings id='settings' popout={this.state.popout} schedule={ this.state.schedule } CellBut={this.state.CellBut} go={ this.go } />

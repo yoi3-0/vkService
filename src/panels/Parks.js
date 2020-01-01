@@ -89,7 +89,7 @@ class Parks extends React.Component {
             case '1': this.setState({activeIframe:
                     <iframe
                         id='1'
-                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
+                        className={osName===IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='1'
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3Aab5dbe04d64cf3da0d0cf0292a13ed265aa650da4c64c674acc4a34d61914260&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -97,7 +97,7 @@ class Parks extends React.Component {
             case '2': this.setState({activeIframe:
                     <iframe
                         id='3'
-                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
+                        className={osName===IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='3'
                         src = "https://yandex.ru/map-widget/v1/?um=constructor%3A9c78e8072ae3800b96805da604be955108dad0b5cd412b4f9bf8b310ae1d52e4&amp;source=constructor"
                         width = "500" height = "400" frameBorder = "0" />
@@ -105,7 +105,7 @@ class Parks extends React.Component {
             case '3': this.setState({activeIframe:
                     <iframe
                         id='3'
-                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
+                        className={osName===IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='3'
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3A5e086c17843b382deca48fee8630ecdfddb71ad2b577ea4f9a3512fdca019622&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -113,7 +113,7 @@ class Parks extends React.Component {
             case '5': this.setState({activeIframe:
                     <iframe
                         id='5'
-                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
+                        className={osName===IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='5'
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3Aab96bd2dc0f0f777c8e3de8e3c1fa2a8ef41579cecf766be0c2c139020a48ea9&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -121,7 +121,7 @@ class Parks extends React.Component {
             case '7': this.setState({activeIframe:
                     <iframe
                         id='7'
-                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
+                        className={osName===IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='7'
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3A6f2eae47d8264de236fdf9ee206a667d4ed9acd4293b1eaf7090b9e0d8bca983&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -129,7 +129,7 @@ class Parks extends React.Component {
             case '8': this.setState({activeIframe:
                     <iframe
                         id='8'
-                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
+                        className={osName===IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='8'
 						src="https://yandex.ru/map-widget/v1/?um=constructor%3Abf470f0676a1546b4d71ef70b683b1589c1635ac5aa469e2bc1dc14ea72f197a&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -137,7 +137,7 @@ class Parks extends React.Component {
             case '10': this.setState({activeIframe:
                     <iframe
                         id='10'
-                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
+                        className={osName===IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='10'
 						src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae26e9b951e420eb6cc78da7c2fd6eec8ad21b478d641a6824e3295c2f777d25d&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>
@@ -145,7 +145,7 @@ class Parks extends React.Component {
             case '11': this.setState({activeIframe:
                     <iframe
                         id='11'
-                        className={osName==IOS? 'MapsCssIOS': 'MapsCssAndroid'}
+                        className={osName===IOS? 'MapsCssIOS': 'MapsCssAndroid'}
                         title='11'
 						src="https://yandex.ru/map-widget/v1/?um=constructor%3A187db803f08a62fd862413419dbb58d995622b16e9bf1ab0394369ade5c37459&amp;source=constructor"
                         width="500" height="400" frameBorder="0"/>

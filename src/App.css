@@ -27,6 +27,7 @@ border: white !important;;
     height: calc(100% - 104px);
     width: 100%;
     box-sizing: border-box;
+    bottom: 48px;
 }
 
 .MapsCssIOS {
