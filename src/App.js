@@ -219,7 +219,7 @@ class App extends React.Component {
 					<Transport id='transport' activePanel={this.state.historyTrans[this.state.historyTrans.length-1]} history={this.state.historyTrans}
 					goBack={this.goBack} goForward={this.goForward} newRoute={this.newRoute} activeRoute={this.state.activeRoute}/>
 					<Parks id='parks'  activePanel={this.state.historyParks[this.state.historyParks.length-1]} history={this.state.historyParks}
-					goBack={this.goBack} goForward={this.goForward} newPark={this.newPark} activeRoute={this.state.activePark}/>
+					goBack={this.goBack} goForward={this.goForward} newPark={this.newPark} activePark={this.state.activePark}/>
 					<Map id='map' />
 					<Settings id='settings' CellBut={this.state.CellBut}  />
 				</Epic>

@@ -80,11 +80,11 @@ class Parks extends React.Component {
 		this.TramPark11 = this.TramPark11.bind(this);
 	}
     get infobase () {
-        return parkinfo.filter(({id})=> id===this.state.activePark);
+        return parkinfo.filter(({id})=> id===this.props.activePark);
     }
     MapView(){
 	    console.log('map for #',this.state.activePark);
-	    switch(this.state.activePark)
+	    switch(this.props.activePark)
         {
             case '1': this.setState({activeIframe:
                     <iframe
@@ -153,7 +153,7 @@ class Parks extends React.Component {
             default: this.setState({activeIframe: 'Карта не найдена! Сообщите об ошибке, пожалуйста.'
             }); break;
         }
-        this.setState({activePanel: 'park_map'})
+        this.props.goForward('park_map');
     }
 	openInfo () {
 		this.setState({ popout:
@@ -161,7 +161,7 @@ class Parks extends React.Component {
                     <ActionSheetItem  autoclose onClick={this.MapView}>
                         Показать на карте
                     </ActionSheetItem>
-					<ActionSheetItem  autoclose onClick={() =>this.setState({activePanel:'park-history'})}>
+					<ActionSheetItem  autoclose onClick={() =>this.props.goForward('park-history')}>
 						История предприятия
 					</ActionSheetItem>
 					{osName === IOS && <ActionSheetItem autoclose theme="cancel">Отменить</ActionSheetItem>}
@@ -169,36 +169,36 @@ class Parks extends React.Component {
 		});
 	}
 	TramPark1 () {
-		this.setState({ activePark: '1'});
+		this.props.newPark('1');
 		this.openInfo();
 	}
 	TramPark2 () {
-		this.setState({ activePark: '2'});
+		this.props.newPark('2');
 		this.openInfo();
 	}
 	TramPark3 () {
-		this.setState({ activePark: '3'});
+		this.props.newPark('3');
 		this.openInfo();
 	}
 	TramPark5 () {
-		this.setState({ activePark: '5'});
+		this.props.newPark('5');
 		this.openInfo();
 	}
 	TramPark7 () {
-		this.setState({ activePark: '7'});
+		this.props.newPark('7');
 		this.openInfo();
 	}
 	TramPark8 () {
-		this.setState({ activePark: '8'});
+		this.props.newPark('8');
 		this.openInfo();
 	}
 	TramPark0 () {
-		this.setState({ activePark: '10'});
+		this.props.newPark('10');
 		this.openInfo();
 	}
 
 	TramPark11 () {
-		this.setState({ activePark: '11'});
+		this.props.newPark('11');
 		this.openInfo();
 	}
 
@@ -207,7 +207,7 @@ class Parks extends React.Component {
 
 	render() {
 		return (
-			<View id={this.props.id} activePanel={this.state.activePanel} popout={this.state.popout}>
+			<View id={this.props.id} activePanel={this.props.activePanel} popout={this.state.popout} onSwipeBack={this.props.goBack} history={this.props.history}>
 				<Panel id='default'>
 					<PanelHeader>
 						Трамвайные парки
@@ -407,11 +407,11 @@ class Parks extends React.Component {
 				</Panel>
 				<Panel id='park-history'>
 					<PanelHeader
-						left={<HeaderButton onClick={ () => this.setState({activePanel:'default', activePark: null})}>
+						left={<HeaderButton onClick={ () => this.props.goBack()}>
 							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 						</HeaderButton>}
 					>
-						{this.state.activePark<10? 'История парка №'+this.state.activePark: this.state.activePark==10? 'История СТТП': 'История депо ООО "ТТК"' }
+						{this.props.activePark<10? 'История парка №'+this.props.activePark: this.props.activePark==10? 'История СТТП': 'История депо ООО "ТТК"' }
 					</PanelHeader>
                     {this.infobase.map(infobase =>
 					<Group key={infobase.id} >
@@ -423,11 +423,11 @@ class Parks extends React.Component {
 				</Panel>
                 <Panel id='park_map'>
                     <PanelHeader
-                        left={<HeaderButton onClick={ () => this.setState({activePanel:'default', activePark: null})}>
+                        left={<HeaderButton onClick={ () => this.props.goBack()}>
                             {osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
                         </HeaderButton>}
                     >
-                        {this.state.activePark<10? 'Парк №'+this.state.activePark: this.state.activePark==10? 'СТТП': 'Депо ООО "ТТК"' } на карте
+                        {this.props.activePark<10? 'Парк №'+this.props.activePark: this.props.activePark==10? 'СТТП': 'Депо ООО "ТТК"' } на карте
                     </PanelHeader>
                     <div className='mapview'>
                         {this.state.activeIframe}
