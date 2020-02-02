@@ -2,6 +2,7 @@ import React from 'react';
 import connect from '@vkontakte/vk-connect';
 import '@vkontakte/vkui/dist/vkui.css';
 import './App.css';
+import ConfigProvider from "@vkontakte/vkui/dist/components/ConfigProvider/ConfigProvider";
 
 import {Root, Epic, Tabbar, TabbarItem, Alert, CellButton} from '@vkontakte/vkui';
 
@@ -25,16 +26,14 @@ class App extends React.Component {
 		this.state = {
 			activeView: 'default',
 			activeStory: 'transport',
-			activeParks: 'default',
-			activeTrans: 'default',
+			historyTrans: ['default'],
+			historyParks: ['default'],
 			activeRoute: '',
+			activePark:'',
 			popout: null,
-			snackbar: null,
 			CellBut: <CellButton before={<Icon24Favorite />} onClick={ () => connect.send("VKWebAppAddToFavorites", {})}> Добавить в избранное</CellButton>,
 			urlVars: this.getUrlVars(),
 			urlObj: this.objToQueryString(this.getUrlVars()),
-			user: null,
-			schedule: [],
 			translations: {
 				parks: 'Парки',
 				routes: 'Маршруты',
@@ -47,6 +46,10 @@ class App extends React.Component {
 		};
 		this.openAlert = this.openAlert.bind(this);
 		this.closePopout = this.closePopout.bind(this);
+		this.goBack=this.goBack.bind(this);
+		this.goForward=this.goForward.bind(this);
+		this.newRoute=this.newRoute.bind(this);
+		this.newPark=this.newPark.bind(this);
 	}
 	openAlert () {
 		this.setState({ popout:
@@ -62,8 +65,57 @@ class App extends React.Component {
 				</Alert>
 		});
 	}
+	newRoute(activeRoute)
+	{
+		this.setState({activeRoute});
+	}
+	newPark(activePark)
+	{
+		this.setState({activePark});
+	}
 	closePopout () {
 		this.setState({ popout: null });
+	}
+
+	goBack = () => {
+		if (this.state.activeStory==='transport')
+		{
+			const history = [...this.state.historyTrans];
+			history.pop();
+			const activePanel = history[history.length - 1];
+			if (activePanel === 'default') {
+				connect.send('VKWebAppDisableSwipeBack');
+			}
+			this.setState({historyTrans: history});
+		} else if (this.state.activeStory==='parks')
+		{
+			const history = [...this.state.historyParks];
+			history.pop();
+			const activePanel = history[history.length - 1];
+			if (activePanel === 'default') {
+				connect.send('VKWebAppDisableSwipeBack');
+			}
+			this.setState({historyParks: history});
+		}
+		else connect.send('VKWebAppDisableSwipeBack');
+	}
+
+	goForward = (activePanel) => {
+		if (this.state.activeStory==='transport') {
+			const history = [...this.state.historyTrans];
+			history.push(activePanel);
+			if (history[history.length - 2] === 'default') {
+				connect.send('VKWebAppEnableSwipeBack');
+			}
+			this.setState({historyTrans: history});
+		} else if (this.state.activeStory==='parks') {
+			const history = [...this.state.historyParks];
+			history.push(activePanel);
+			if (history[history.length - 2] === 'default') {
+				connect.send('VKWebAppEnableSwipeBack');
+			}
+			this.setState({historyParks: history});
+		}
 	}
 
 	getUrlVars() {
@@ -120,6 +172,7 @@ class App extends React.Component {
 
 	render() {
 		return (
+			<ConfigProvider>
 			<Root activeView={this.state.activeView}>
 				<Epic
 					id='default'
@@ -163,12 +216,15 @@ class App extends React.Component {
 							</TabbarItem>
 						</Tabbar>
 					}>
-					<Transport id='transport' />
-					<Parks id='parks'  activePanel={this.state.activeParks}/>
-					<Map id='map' go={ this.go } />
+					<Transport id='transport' activePanel={this.state.historyTrans[this.state.historyTrans.length-1]} history={this.state.historyTrans}
+					goBack={this.goBack} goForward={this.goForward} newRoute={this.newRoute} activeRoute={this.state.activeRoute}/>
+					<Parks id='parks'  activePanel={this.state.historyParks[this.state.historyParks.length-1]} history={this.state.historyParks}
+					goBack={this.goBack} goForward={this.goForward} newPark={this.newPark} activeRoute={this.state.activePark}/>
+					<Map id='map' />
 					<Settings id='settings' CellBut={this.state.CellBut}  />
 				</Epic>
 			</Root>
+			</ConfigProvider>
 		);
 	}
 }

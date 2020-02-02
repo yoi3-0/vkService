@@ -189,11 +189,11 @@ class Transport extends React.Component {
     	let activeModal=null;
     	let modalHistory=[];       //time to kostil
     	console.log('history cleared');
+    	this.props.goForward('route_map')
 		this.setState({
-			activePanel: 'route_map', activeModal, modalHistory,
 			popout: <ScreenSpinner/>
-			},);
-    	switch (this.state.activeRoute-1000) {
+			});
+    	switch (this.props.activeRoute-1000) {
 			case -2: this.setState({
 				activeIframe: <iframe
 					id='-2'
@@ -581,7 +581,6 @@ class Transport extends React.Component {
 
 	openRoute(id) {
 		id = id || null;
-		let activeRoute=id;
 		let s= new Date().toLocaleString();    												//time
 		console.log(s);
 		let newstr = s.slice(s.indexOf(",")+2);
@@ -589,10 +588,8 @@ class Transport extends React.Component {
 		if (newstr>'00:20:00' && newstr<'05:00:00') this.setState({snackbar:    //this.routes.{this.state.activeRoute}.time
 				<Snackbar before={<Avatar size={24} style={{backgroundColor: 'var(--accent)'}}><Icon24DoNotDisturb fill="#fff" width={14} height={14} /></Avatar>}>Маршут сейчас не работает! </Snackbar>});
 		let activePanel='route_info';
-		this.setState({
-            activeRoute,
-			activePanel
-		});
+		this.props.goForward(activePanel);
+		this.props.newRoute(id);
 	};
 	onChange (search) { if (search.length>15){this.openAlert()}
 	else
@@ -608,7 +605,7 @@ class Transport extends React.Component {
 	}
 
 	get infobase () {
-		return routes.filter(({id})=> id===this.state.activeRoute);
+		return routes.filter(({id})=> id===this.props.activeRoute);
 	}
 
 	metro(){
@@ -644,7 +641,8 @@ class Transport extends React.Component {
 
 											//return
 		return (
-			<View id={this.props.id} activePanel={this.state.activePanel} modal={modal} popout={this.state.popout}>
+			<View id={this.props.id} activePanel={this.props.activePanel} modal={modal} popout={this.state.popout}
+				  onSwipeBack={this.props.goBack} history={this.props.history}>
 				<Panel id='default'>
 					<div>
 						<PanelHeader
@@ -663,7 +661,7 @@ class Transport extends React.Component {
 				</Panel>
 				<Panel id='route_map'>
 					<PanelHeader
-						left={<HeaderButton onClick={ () => this.setState({activePanel:'route_info'})}>
+						left={<HeaderButton onClick={ () => this.props.goBack()}>
 							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 						</HeaderButton>}
 					>
@@ -676,13 +674,13 @@ class Transport extends React.Component {
 				</Panel>
 				<Panel id='route_info'>
 					<PanelHeader
-						left={<HeaderButton onClick={ () => this.setState({activePanel:'default', activeRoute: null})}>
+						left={<HeaderButton onClick={ () => this.props.goBack()}>
 							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 						</HeaderButton>}
 					>
 						{this.infobase.map(infobase =>
 							<div className='container' key={infobase.id}>
-								Трамвай {this.state.activeRoute-1000>-1? this.state.activeRoute-1000 : (this.state.activeRoute-1000===-1? 'A': 'Т1') }
+								Трамвай {this.props.activeRoute-1000>-1? this.props.activeRoute-1000 : (this.props.activeRoute-1000===-1? 'A': 'Т1') }
 								<Avatar size={24}  style={{ marginLeft: '10px' , border: '1px solid black', background: infobase.col1 }}/>
 								<Avatar size={24} style={{ marginLeft: '3px' ,border: '1px solid black', background: infobase.col2 }}/>
 							</div>
