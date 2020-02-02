@@ -163,10 +163,10 @@ class App extends React.Component {
 							</TabbarItem>
 						</Tabbar>
 					}>
-					<Transport id='transport' go={ this.go } activePanel={this.state.activeTrans} activeRoute={this.state.activeRoute}/>
-					<Parks id='parks' go={ this.go } activePanel={this.state.activeParks}/>
+					<Transport id='transport' />
+					<Parks id='parks'  activePanel={this.state.activeParks}/>
 					<Map id='map' go={ this.go } />
-					<Settings id='settings' popout={this.state.popout} schedule={ this.state.schedule } CellBut={this.state.CellBut} go={ this.go } />
+					<Settings id='settings' CellBut={this.state.CellBut}  />
 				</Epic>
 			</Root>
 		);

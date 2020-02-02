@@ -149,7 +149,7 @@ class Transport extends React.Component {
 			popout: null,
 		};
 		this.modalBack = () => {
-			this.setActiveModal(this.state.modalHistory[this.state.modalHistory.length - 2]);
+			this.setState({activeModal: null});
 			this.setState({snackbar:null});
 		};
 		this.HideSpinner = this.HideSpinner.bind(this);
@@ -579,31 +579,19 @@ class Transport extends React.Component {
 		}
     }
 
-	setActiveModal(activeModal) {
-		activeModal = activeModal || null;
-		let activeRoute='';
-		let modalHistory = this.state.modalHistory ? [...this.state.modalHistory] : [];
+	openRoute(id) {
+		id = id || null;
+		let activeRoute=id;
 		let s= new Date().toLocaleString();    												//time
 		console.log(s);
 		let newstr = s.slice(s.indexOf(",")+2);
-		console.log(newstr>'00:20:00' && newstr<'05:00:00');  //snackbar вылазит как говно! проверку пнренести в if
+		console.log(newstr>'00:20:00' && newstr<'05:00:00');  //snackbar вылазит huevo 
 		if (newstr>'00:20:00' && newstr<'05:00:00') this.setState({snackbar:    //this.routes.{this.state.activeRoute}.time
 				<Snackbar before={<Avatar size={24} style={{backgroundColor: 'var(--accent)'}}><Icon24DoNotDisturb fill="#fff" width={14} height={14} /></Avatar>}>Маршут сейчас не работает! </Snackbar>});
-		if (activeModal === null) {
-			modalHistory = [];
-		} else if (modalHistory.indexOf(activeModal) !== -1) {
-            activeRoute=activeModal[activeModal.length-1];
-			modalHistory = modalHistory.splice(0, modalHistory.indexOf(activeModal) + 1);
-		} else {
-            activeRoute=activeModal;
-			modalHistory.push(activeModal);
-			activeModal='tram'
-		}
-		//if (activeRoute==) activeRoute='A';
+		let activePanel='route_info';
 		this.setState({
             activeRoute,
-			activeModal,
-			modalHistory
+			activePanel
 		});
 	};
 	onChange (search) { if (search.length>15){this.openAlert()}
@@ -631,100 +619,6 @@ class Transport extends React.Component {
 	{
 		const modal=(
 			<ModalRoot activeModal={this.state.activeModal} >
-				<ModalPage
-					className='modal-page'
-					id={'tram'}
-					onClose={this.modalBack}
-					header={
-						<ModalPageHeader
-							left={IS_PLATFORM_ANDROID && <HeaderButton onClick={this.modalBack}><Icon24Cancel /></HeaderButton>}
-							right={IS_PLATFORM_IOS && <HeaderButton onClick={this.modalBack}>Готово</HeaderButton>}
-						>
-							{this.infobase.map(infobase =>
-							<div className='container' key={infobase.id}>
-								Трамвай {this.state.activeRoute-1000>-1? this.state.activeRoute-1000 : (this.state.activeRoute-1000===-1? 'A': 'Т1') }
-								<Avatar size={24}  style={{ marginLeft: '10px' , border: '1px solid black', background: infobase.col1 }}/>
-								<Avatar size={24} style={{ marginLeft: '3px' ,border: '1px solid black', background: infobase.col2 }}/>
-							</div>
-							)}
-						</ModalPageHeader>
-					}
-				>
-
-					<div className='route-info'>
-						<Group title={<TextButton routepic={this.routepic}/>}>
-							{this.infobase.length > 0?
-								<List>
-									{this.infobase.map(infobase =>
-										<Cell key={infobase.id} >
-											<InfoRow title='Конечные остановки'>
-												{infobase.finalstop1} <br/> {infobase.finalstop2}
-											</InfoRow>
-										</Cell>)}
-									{this.infobase.map(infobase =>
-										<Cell key={infobase.id} >
-											<InfoRow title='Станции метро по пути следования' className='route-infoline'>
-												{infobase.metro1}
-												{'metro2' in infobase? <br/> : ''} {infobase.metro2}
-												{'metro3' in infobase? <br/> : ''} {infobase.metro3}
-												{'metro4' in infobase? <br/> : ''} {infobase.metro4}
-												{'metro5' in infobase? <br/> : ''} {infobase.metro5}
-												{'metro6' in infobase? <br/> : ''} {infobase.metro6}
-												{'metro7' in infobase? <br/> : ''} {infobase.metro7}
-												{'metro8' in infobase? <br/> : ''} {infobase.metro8}
-													</InfoRow>
-										</Cell>)}
-									{this.infobase.map(infobase =>
-										<Cell key={infobase.id} >
-											<InfoRow title='График работы'>
-												{'working_days' in infobase? 'По будням' : 'Ежедневно'}
-												<br/>
-												{'schedule' in infobase? infobase.schedule : ''}
-											</InfoRow>
-										</Cell>)}
-								</List>:
-								<InfoRow className='zaglushka' title='Ошибка'>
-									Нет информации о пути следования
-								</InfoRow>
-							}
-                            <Separator />
-                            {this.infobase.length > 0?
-								<List>
-									{this.infobase.map(infobase =>
-										<Cell key={infobase.id} >
-											<InfoRow title='Стоимость проезда'>
-												{infobase.cost} руб.
-											</InfoRow>
-										</Cell>)}
-									{this.infobase.map(infobase =>
-										<Cell key={infobase.id} >
-											<InfoRow title='Обслуживающие парки'>
-												{infobase.park}
-											</InfoRow>
-										</Cell>)}
-									{this.infobase.map(infobase =>
-										<Cell key={infobase.id} >
-											<InfoRow title='Подвижной состав'>
-												{infobase.sostav1}
-												{'sostav2' in infobase? <br/> : ''} {infobase.sostav2}
-											</InfoRow>
-										</Cell>
-									)}
-									{this.infobase.map(infobase =>
-										<Cell key={infobase.id} >
-											<InfoRow title='Последнее изменение маршрута'>
-												{infobase.lchange}
-											</InfoRow>
-										</Cell>
-									)}
-								</List>:
-								<InfoRow className='zaglushka' title='Ошибка'>
-									О данном маршруте нет дополнительной информации
-								</InfoRow>
-							}
-						</Group>
-					</div>
-				</ModalPage>
 				<ModalPage
 					className='modal-page'
 					id={'Bugreport'}
@@ -761,7 +655,7 @@ class Transport extends React.Component {
 						<Search value={this.state.search} onChange={this.onChange}/>
 						{this.thematics.length > 0 ?
 						<List>
-							{this.thematics.map(thematic => <Cell key={thematic.id} onClick={() => this.setActiveModal(thematic.id)} >{thematic.name}</Cell>)}
+							{this.thematics.map(thematic => <Cell key={thematic.id} onClick={() => this.openRoute(thematic.id)} >{thematic.name}</Cell>)}
 						</List>:
 								<Placeholder> Маршрут не найден. </Placeholder>
 						}
@@ -769,7 +663,7 @@ class Transport extends React.Component {
 				</Panel>
 				<Panel id='route_map'>
 					<PanelHeader
-						left={<HeaderButton onClick={ () => this.setState({activePanel:'default', activePark: null})}>
+						left={<HeaderButton onClick={ () => this.setState({activePanel:'route_info'})}>
 							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 						</HeaderButton>}
 					>
@@ -779,6 +673,92 @@ class Transport extends React.Component {
 					{this.state.activeIframe}
 					</div>
 					{this.state.snackbar}
+				</Panel>
+				<Panel id='route_info'>
+					<PanelHeader
+						left={<HeaderButton onClick={ () => this.setState({activePanel:'default', activeRoute: null})}>
+							{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
+						</HeaderButton>}
+					>
+						{this.infobase.map(infobase =>
+							<div className='container' key={infobase.id}>
+								Трамвай {this.state.activeRoute-1000>-1? this.state.activeRoute-1000 : (this.state.activeRoute-1000===-1? 'A': 'Т1') }
+								<Avatar size={24}  style={{ marginLeft: '10px' , border: '1px solid black', background: infobase.col1 }}/>
+								<Avatar size={24} style={{ marginLeft: '3px' ,border: '1px solid black', background: infobase.col2 }}/>
+							</div>
+						)}
+					</PanelHeader>
+						<Group title={<TextButton routepic={this.routepic}/>}>
+							{this.infobase.length > 0?
+								<List>
+									{this.infobase.map(infobase =>
+										<Cell key={infobase.id} >
+											<InfoRow title='Конечные остановки'>
+												{infobase.finalstop1} <br/> {infobase.finalstop2}
+											</InfoRow>
+										</Cell>)}
+									{this.infobase.map(infobase =>
+										<Cell key={infobase.id} >
+											<InfoRow title='Станции метро по пути следования' className='route-infoline'>
+												{infobase.metro1}
+												{'metro2' in infobase? <br/> : ''} {infobase.metro2}
+												{'metro3' in infobase? <br/> : ''} {infobase.metro3}
+												{'metro4' in infobase? <br/> : ''} {infobase.metro4}
+												{'metro5' in infobase? <br/> : ''} {infobase.metro5}
+												{'metro6' in infobase? <br/> : ''} {infobase.metro6}
+												{'metro7' in infobase? <br/> : ''} {infobase.metro7}
+												{'metro8' in infobase? <br/> : ''} {infobase.metro8}
+											</InfoRow>
+										</Cell>)}
+									{this.infobase.map(infobase =>
+										<Cell key={infobase.id} >
+											<InfoRow title='График работы'>
+												{'working_days' in infobase? 'По будням' : 'Ежедневно'}
+												<br/>
+												{'schedule' in infobase? infobase.schedule : ''}
+											</InfoRow>
+										</Cell>)}
+								</List>:
+								<InfoRow className='zaglushka' title='Ошибка'>
+									Нет информации о пути следования
+								</InfoRow>
+							}
+							<Separator />
+							{this.infobase.length > 0?
+								<List>
+									{this.infobase.map(infobase =>
+										<Cell key={infobase.id} >
+											<InfoRow title='Стоимость проезда'>
+												{infobase.cost} руб.
+											</InfoRow>
+										</Cell>)}
+									{this.infobase.map(infobase =>
+										<Cell key={infobase.id} >
+											<InfoRow title='Обслуживающие парки'>
+												{infobase.park}
+											</InfoRow>
+										</Cell>)}
+									{this.infobase.map(infobase =>
+										<Cell key={infobase.id} >
+											<InfoRow title='Подвижной состав'>
+												{infobase.sostav1}
+												{'sostav2' in infobase? <br/> : ''} {infobase.sostav2}
+											</InfoRow>
+										</Cell>
+									)}
+									{this.infobase.map(infobase =>
+										<Cell key={infobase.id} >
+											<InfoRow title='Последнее изменение маршрута'>
+												{infobase.lchange}
+											</InfoRow>
+										</Cell>
+									)}
+								</List>:
+								<InfoRow className='zaglushka' title='Ошибка'>
+									О данном маршруте нет дополнительной информации
+								</InfoRow>
+							}
+						</Group>
 				</Panel>
 			</View>
 		);

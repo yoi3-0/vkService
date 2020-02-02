@@ -83,9 +83,8 @@ border: white !important;;
 
 .container{
     display: flex;
-
+    align-items: center;
     flex-direction: row;
-
     justify-content: flex-start;
 
 }
