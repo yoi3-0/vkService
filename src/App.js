@@ -154,10 +154,8 @@ class App extends React.Component {
 					break;
 			}
 			console.log('new message', event.detail.type);
-			//if (this.state.urlVars.vk_is_favorite==='1') this.setState({CellBut:<CellButton disabled before={<Icon24Favorite />} >Сервис уже в списке избранных</CellButton>});
 		});
-
-
+		if (this.state.urlVars.vk_is_favorite==='1') this.setState({CellBut:<CellButton disabled before={<Icon24Favorite />} >Сервис уже в списке избранных</CellButton>});
 		this.setState({ popout: null });
 	}
 
