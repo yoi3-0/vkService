@@ -4,7 +4,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import './App.css';
 import ConfigProvider from "@vkontakte/vkui/dist/components/ConfigProvider/ConfigProvider";
 
-import {Root, Epic, Tabbar, TabbarItem, Alert, CellButton} from '@vkontakte/vkui';
+import {Root, Epic, Tabbar, TabbarItem, Alert, CellButton, ScreenSpinner} from '@vkontakte/vkui';
 
 import Icon28InfoOutline from '@vkontakte/icons/dist/28/info_outline';
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
@@ -30,6 +30,9 @@ class App extends React.Component {
 			historyParks: ['default'],
 			activeRoute: '',
 			activePark:'',
+			popTran: null,
+			parkIframe: null,
+			tranIframe: null,
 			popout: null,
 			CellBut: <CellButton before={<Icon24Favorite />} onClick={ () => connect.send("VKWebAppAddToFavorites", {})}> Добавить в избранное</CellButton>,
 			urlVars: this.getUrlVars(),
@@ -50,6 +53,11 @@ class App extends React.Component {
 		this.goForward=this.goForward.bind(this);
 		this.newRoute=this.newRoute.bind(this);
 		this.newPark=this.newPark.bind(this);
+		this.newIframePark=this.newIframePark.bind(this);
+		this.newIframeTran=this.newIframeTran.bind(this);
+		this.openAlertTran=this.openAlertTran.bind(this);
+		this.closePopTran=this.closePopTran.bind(this);
+		this.makeSpin=this.makeSpin.bind(this);
 	}
 	openAlert () {
 		this.setState({ popout:
@@ -65,6 +73,29 @@ class App extends React.Component {
 				</Alert>
 		});
 	}
+	makeSpin(){
+		this.setState({
+			popTran: <ScreenSpinner/>
+		});
+	}
+	openAlertTran () {
+		this.setState({ popTran:
+				<Alert
+					actions={[{
+						title: 'ОК',
+						autoclose: true,
+						style: 'cancel'
+					}]}
+					onClose={this.closePopTran}
+				>
+					<h2>Ограничение на количество символов</h2>
+					<p>Нельзя вводить больше 15 символов в поиск.</p>
+				</Alert>
+		});
+	}
+	closePopTran () {
+		this.setState({ popTran: null });
+	}
 	newRoute(activeRoute)
 	{
 		this.setState({activeRoute});
@@ -72,6 +103,14 @@ class App extends React.Component {
 	newPark(activePark)
 	{
 		this.setState({activePark});
+	}
+	newIframePark(iframe)
+	{
+		this.setState({parkIframe: iframe})
+	}
+	newIframeTran(iframe)
+	{
+		this.setState({tranIframe: iframe})
 	}
 	closePopout () {
 		this.setState({ popout: null });
@@ -104,6 +143,7 @@ class App extends React.Component {
 		if (this.state.activeStory==='transport') {
 			const history = [...this.state.historyTrans];
 			history.push(activePanel);
+			window.history.pushState({panel: activePanel}, activePanel);
 			if (history[history.length - 2] === 'default') {
 				connect.send('VKWebAppEnableSwipeBack');
 			}
@@ -111,6 +151,7 @@ class App extends React.Component {
 		} else if (this.state.activeStory==='parks') {
 			const history = [...this.state.historyParks];
 			history.push(activePanel);
+			window.history.pushState({panel: activePanel}, activePanel);
 			if (history[history.length - 2] === 'default') {
 				connect.send('VKWebAppEnableSwipeBack');
 			}
@@ -155,6 +196,8 @@ class App extends React.Component {
 			}
 			console.log('new message', event.detail.type);
 		});
+		window.addEventListener('popstate', e => {e.preventDefault(); this.goBack(e)});
+		document.addEventListener("backbutton", e => {e.preventDefault(); this.goBack(e)});
 		if (this.state.urlVars.vk_is_favorite==='1') this.setState({CellBut:<CellButton disabled before={<Icon24Favorite />} >Сервис уже в списке избранных</CellButton>});
 		this.setState({ popout: null });
 	}
@@ -215,8 +258,11 @@ class App extends React.Component {
 						</Tabbar>
 					}>
 					<Transport id='transport' activePanel={this.state.historyTrans[this.state.historyTrans.length-1]} history={this.state.historyTrans}
-					goBack={this.goBack} goForward={this.goForward} newRoute={this.newRoute} activeRoute={this.state.activeRoute}/>
-					<Parks id='parks'  activePanel={this.state.historyParks[this.state.historyParks.length-1]} history={this.state.historyParks}
+					goBack={this.goBack} goForward={this.goForward} newIframe={this.newIframeTran} popout={this.state.popTran} makeAlert={this.openAlertTran} closepopout={this.closePopTran}
+							   makeSpinner={this.makeSpin} activeIframeApp={this.state.tranIframe}
+							   newRoute={this.newRoute} activeRoute={this.state.activeRoute}/>
+					<Parks id='parks'  activeIframe={this.state.parkIframe} activePanel={this.state.historyParks[this.state.historyParks.length-1]}
+						   history={this.state.historyParks} newIframe={this.newIframePark}
 					goBack={this.goBack} goForward={this.goForward} newPark={this.newPark} activePark={this.state.activePark}/>
 					<Map id='map' />
 					<Settings id='settings' CellBut={this.state.CellBut}  />
