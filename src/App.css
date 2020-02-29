@@ -69,6 +69,7 @@ border: white !important;;
     max-height: 100%;
 }
 .route-infoline{
+    overflow: auto;
    width: 100%;
 }
 .Header_button{

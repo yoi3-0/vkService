@@ -669,14 +669,14 @@ class Transport extends React.Component {
 										</Cell>)}
 									{this.infobase.map(infobase =>
 										<Cell key={infobase.id} >
-											<InfoRow title='Подвижной состав'>
+											<InfoRow title='Подвижной состав' className='route-infoline'>
 												{infobase.sostav1}
 												{'sostav2' in infobase? <br/> : ''} {infobase.sostav2}
 											</InfoRow>
 										</Cell>
 									)}
 									{this.infobase.map(infobase =>
-										<Cell key={infobase.id} >
+										<Cell key={infobase.id} className='route-infoline'>
 											<InfoRow title='Последнее изменение маршрута'>
 												{infobase.lchange}
 											</InfoRow>

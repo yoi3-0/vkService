@@ -124,6 +124,7 @@ class App extends React.Component {
 			const activePanel = history[history.length - 1];
 			if (activePanel === 'default') {
 				connect.send('VKWebAppDisableSwipeBack');
+				//window.history.forward(1);
 			}
 			this.setState({historyTrans: history});
 		} else if (this.state.activeStory==='parks')
@@ -133,6 +134,7 @@ class App extends React.Component {
 			const activePanel = history[history.length - 1];
 			if (activePanel === 'default') {
 				connect.send('VKWebAppDisableSwipeBack');
+				//window.history.forward(1);
 			}
 			this.setState({historyParks: history});
 		}
