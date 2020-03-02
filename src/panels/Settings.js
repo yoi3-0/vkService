@@ -26,6 +26,9 @@ const Settings = props => (
             <Footer>
                 Информация взята с wikipedia.org и pitertransport.com
             </Footer>
+            <Footer>
+               v(100)
+            </Footer>
         </Panel>
     </View>
 );

@@ -120,8 +120,13 @@ class App extends React.Component {
 		if (this.state.activeStory==='transport')
 		{
 			const history = [...this.state.historyTrans];
+			let activePanel = history[history.length - 1];
+			if (activePanel === 'default') {
+				window.history.forward();
+				return;
+			}
 			history.pop();
-			const activePanel = history[history.length - 1];
+			activePanel = history[history.length - 1];
 			if (activePanel === 'default') {
 				connect.send('VKWebAppDisableSwipeBack');
 				//window.history.forward(1);
@@ -130,15 +135,24 @@ class App extends React.Component {
 		} else if (this.state.activeStory==='parks')
 		{
 			const history = [...this.state.historyParks];
+			let activePanel = history[history.length - 1];
+			if (activePanel === 'default') {
+				window.history.forward();
+				return;
+			}
 			history.pop();
-			const activePanel = history[history.length - 1];
+			activePanel = history[history.length - 1];
 			if (activePanel === 'default') {
 				connect.send('VKWebAppDisableSwipeBack');
 				//window.history.forward(1);
 			}
 			this.setState({historyParks: history});
 		}
-		else connect.send('VKWebAppDisableSwipeBack');
+		else {
+			connect.send('VKWebAppDisableSwipeBack');
+			window.history.forward();
+			return;
+		}
 	}
 
 	goForward = (activePanel) => {
