@@ -150,11 +150,12 @@ class Transport extends React.Component {
 		this.modalBack = () => {
 			this.setState({activeModal: null});
 			this.setState({snackbar:null});
+			this.props.allowBack(true);
 		};
 		this.HideSpinner = this.HideSpinner.bind(this);
 		this.onChange = this.onChange.bind(this);
-		this.metro = this.metro.bind(this);
         this.routepic = this.routepic.bind(this);
+		this.openBug = this.openBug.bind(this);
 	}
 
 	HideSpinner()
@@ -539,8 +540,10 @@ class Transport extends React.Component {
 		return routes.filter(({id})=> id===this.props.activeRoute);
 	}
 
-	metro(){
-
+	openBug(){
+		this.setState({activeModal:'Bugreport'});
+		this.props.allowBack(false);
+		window.history.pushState({modal: "bug"}, "bug-modal");
 	}
 
 	render()
@@ -577,7 +580,7 @@ class Transport extends React.Component {
 				<Panel id='default'>
 					<div>
 						<PanelHeader
-						left={<HeaderButton onClick={() => this.setState({activeModal:'Bugreport'})} ><Icon24Bug/></HeaderButton>}
+						left={<HeaderButton onClick={() => this.openBug()} ><Icon24Bug/></HeaderButton>}
 						>
 							Маршруты
 						</PanelHeader>

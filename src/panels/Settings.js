@@ -27,7 +27,7 @@ const Settings = props => (
                 Информация взята с wikipedia.org и pitertransport.com
             </Footer>
             <Footer>
-               v(100)
+               v(102)
             </Footer>
         </Panel>
     </View>

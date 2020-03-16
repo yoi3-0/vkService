@@ -30,6 +30,7 @@ class App extends React.Component {
 			historyParks: ['default'],
 			activeRoute: '',
 			activePark:'',
+			allowClose: true,
 			popTran: null,
 			parkIframe: null,
 			tranIframe: null,
@@ -58,6 +59,11 @@ class App extends React.Component {
 		this.openAlertTran=this.openAlertTran.bind(this);
 		this.closePopTran=this.closePopTran.bind(this);
 		this.makeSpin=this.makeSpin.bind(this);
+		this.allowBack=this.allowBack.bind(this);
+	}
+	allowBack(boo)
+	{
+		if (!boo) this.setState({allowClose:false}); else this.setState({allowClose:true});
 	}
 	openAlert () {
 		this.setState({ popout:
@@ -120,30 +126,36 @@ class App extends React.Component {
 		if (this.state.activeStory==='transport')
 		{
 			const history = [...this.state.historyTrans];
-			let activePanel = history[history.length - 1];
-			if (activePanel === 'default') {
+			if (this.state.historyTrans[this.state.historyTrans.length-1] === 'default' && this.state.allowClose===false) {
 				window.history.forward();
 				return;
 			}
+			if (this.state.historyTrans[this.state.historyTrans.length-1] === 'default')
+				window.history.go(-1);
+			if (this.state.historyTrans[this.state.historyTrans.length-1] === 'default') return;
 			history.pop();
-			activePanel = history[history.length - 1];
+			const activePanel = history[history.length - 1];
 			if (activePanel === 'default') {
 				connect.send('VKWebAppDisableSwipeBack');
-				//window.history.forward(1);
+				this.setState({allowClose:true})
 			}
 			this.setState({historyTrans: history});
 		} else if (this.state.activeStory==='parks')
 		{
 			const history = [...this.state.historyParks];
-			let activePanel = history[history.length - 1];
-			if (activePanel === 'default') {
+			if (this.state.historyParks[this.state.historyParks.length-1] === 'default' && this.state.allowClose===false) {
 				window.history.forward();
+				console.log(window.history);
 				return;
 			}
+			if (this.state.historyParks[this.state.historyParks.length-1] === 'default')
+				window.history.go(-1);
+			if (this.state.historyParks[this.state.historyParks.length-1] === 'default') return;
 			history.pop();
-			activePanel = history[history.length - 1];
+			const activePanel = history[history.length - 1];
 			if (activePanel === 'default') {
 				connect.send('VKWebAppDisableSwipeBack');
+				this.setState({allowClose:true})
 				//window.history.forward(1);
 			}
 			this.setState({historyParks: history});
@@ -220,12 +232,12 @@ class App extends React.Component {
 
 	onStoryChange = (e) => {
 		this.setState({ activeStory: e.currentTarget.dataset.story });
+		window.history.pushState({story: e.currentTarget.dataset.story}, e.currentTarget.dataset.story);
 	};
 
 	go = (e) => {
 		this.setState({ activeView: e.currentTarget.dataset.to })
 	};
-
 
 	render() {
 		return (
@@ -244,10 +256,9 @@ class App extends React.Component {
 							>
 								<Icon28Newsfeed />
 							</TabbarItem>
-
 							<TabbarItem
 								onClick={ this.onStoryChange }
-								selected={ this.state.activeStory === 'parks' }
+								selected={ this.state.activeStory === 'parks'}
 								data-story='parks'
 								text= {this.state.translations.parks}
 							>
@@ -273,12 +284,12 @@ class App extends React.Component {
 							</TabbarItem>
 						</Tabbar>
 					}>
-					<Transport id='transport' activePanel={this.state.historyTrans[this.state.historyTrans.length-1]} history={this.state.historyTrans}
+					<Transport id='transport' activePanel={this.state.historyTrans[this.state.historyTrans.length-1]} allowBack={this.allowBack} history={this.state.historyTrans}
 					goBack={this.goBack} goForward={this.goForward} newIframe={this.newIframeTran} popout={this.state.popTran} makeAlert={this.openAlertTran} closepopout={this.closePopTran}
 							   makeSpinner={this.makeSpin} activeIframeApp={this.state.tranIframe}
 							   newRoute={this.newRoute} activeRoute={this.state.activeRoute}/>
 					<Parks id='parks'  activeIframe={this.state.parkIframe} activePanel={this.state.historyParks[this.state.historyParks.length-1]}
-						   history={this.state.historyParks} newIframe={this.newIframePark}
+						   history={this.state.historyParks} allowBack={this.allowBack} newIframe={this.newIframePark}
 					goBack={this.goBack} goForward={this.goForward} newPark={this.newPark} activePark={this.state.activePark}/>
 					<Map id='map' />
 					<Settings id='settings' CellBut={this.state.CellBut}  />

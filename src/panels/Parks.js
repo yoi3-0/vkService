@@ -78,6 +78,7 @@ class Parks extends React.Component {
 		this.TramPark8 = this.TramPark8.bind(this);
 		this.TramPark0 = this.TramPark0.bind(this);
 		this.TramPark11 = this.TramPark11.bind(this);
+		this.ClosePopout = this.ClosePopout.bind(this);
 	}
     get infobase () {
         return parkinfo.filter(({id})=> id===this.props.activePark);
@@ -155,9 +156,14 @@ class Parks extends React.Component {
         }
         this.props.goForward('park_map');
     }
+    ClosePopout()
+	{
+		this.props.allowBack(true);
+		this.setState({ popout: null })
+	}
 	openInfo () {
 		this.setState({ popout:
-				<ActionSheet onClose={() => this.setState({ popout: null })}>
+				<ActionSheet onClose={() => this.ClosePopout()}>
                     <ActionSheetItem  autoclose onClick={this.MapView}>
                         Показать на карте
                     </ActionSheetItem>
@@ -170,35 +176,43 @@ class Parks extends React.Component {
 	}
 	TramPark1 () {
 		this.props.newPark('1');
+		this.props.allowBack(false);
 		this.openInfo();
 	}
 	TramPark2 () {
 		this.props.newPark('2');
+		this.props.allowBack(false);
 		this.openInfo();
 	}
 	TramPark3 () {
 		this.props.newPark('3');
+		this.props.allowBack(false);
 		this.openInfo();
 	}
 	TramPark5 () {
 		this.props.newPark('5');
+		this.props.allowBack(false);
 		this.openInfo();
 	}
 	TramPark7 () {
 		this.props.newPark('7');
+		this.props.allowBack(false);
 		this.openInfo();
 	}
 	TramPark8 () {
 		this.props.newPark('8');
+		this.props.allowBack(false);
 		this.openInfo();
 	}
 	TramPark0 () {
 		this.props.newPark('10');
+		this.props.allowBack(false);
 		this.openInfo();
 	}
 
 	TramPark11 () {
 		this.props.newPark('11');
+		this.props.allowBack(false);
 		this.openInfo();
 	}
 
